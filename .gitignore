@@ -31,3 +31,7 @@ input/
 # *.log
 
 # Keep empty folders (git doesn't track them by default, but we might want .gitkeep later)
+
+# --- Private Assets (The Stowaway Repo) ---
+# We ignore this entire folder so the main repo never sees it.
+workflows/private/
