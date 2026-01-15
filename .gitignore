@@ -1,0 +1,33 @@
+# --- System & IDE ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# --- Python / Environment ---
+__pycache__/
+*.py[cod]
+venv/
+.env
+.venv/
+
+# --- ComfyUI Specifics ---
+# Ignore model checkpoints/LoRAs if you accidentally copy them here
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+
+# Ignore output folders if you run ComfyUI directly inside this repo
+output/
+temp/
+input/
+
+# --- Assets ---
+# We generally WANT to track .png files (workflow thumbnails)
+# But if you have a specific dump folder for generations, list it here:
+# generations/
+# *.log
+
+# Keep empty folders (git doesn't track them by default, but we might want .gitkeep later)
