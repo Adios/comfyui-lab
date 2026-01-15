@@ -12,15 +12,17 @@ Documentation and analysis reports.
 ### `workflows/`
 This directory follows a split-repository structure for security and privacy.
 
+* **`workflows/templates/`**: (Public)
+    * Sanitized, production-ready workflow templates. Safe for general use (no personal paths or prompts).
 * **`workflows/private/`**: (Sub-Repository)
-    * Contains the actual `.json` workflow files, prompts, and thumbnail assets.
+    * Contains the raw `.json` workflow files, full prompt stacks, and LoRA/Checkpoints lists.
     * **Note:** This folder is a separate private Git repository. It is ignored by the main public repo to protect sensitive prompt engineering and assets.
 
-#### Workflow Categories (Inside Private):
-* **`master/`**: Production-ready pipelines (e.g., NoobAI XL + FaceDetailer).
-* **`highres/`**: Upscaling and refinement pipelines.
-* **`repair/`**: Surgical tools (MeshGraphormer) for fixing specific failures.
-* **`experimental/`**: Drafts and research nodes.
+### `scripts/`
+Maintenance and utility scripts for the lab.
+* **`sanitize_workflow.py`**: A CLI tool to prepare workflows for public release.
+    * *Function:* Removes prompt text, sanitizes local file paths (LoRAs, Checkpoints), and clears personal metadata.
+    * *Usage:* `python3 scripts/sanitize_workflow.py input.json -o output_template.json`
 
 ## 🚀 Current Baseline (Jan 2026)
 * **Model:** NoobAI XL
