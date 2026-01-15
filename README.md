@@ -4,25 +4,26 @@ A personal laboratory for Stable Diffusion workflows, optimization research, and
 
 ## 📂 Repository Structure
 
-This repository is organized into "Tools" (Workflows) and "Research" (Experiments).
+### `experiments/`
+Documentation and analysis reports.
+* **Reports:** Detailed markdown logs of sampler comparisons (e.g., Euler A vs Euler), scheduler tests, and optimization strategies.
+* **Naming:** `YYYY-MM-DD_topic-name`
 
 ### `workflows/`
-Production-ready and experimental workflows for ComfyUI.
-* **`master/`**: Stable, clean workflows used for daily generation (e.g., Face-only detailer pipelines).
-* **`highres/`**: Workflows specialized for upscaling and hand refinement.
-* **`repair/`**: Specialized "surgery" workflows (e.g., MeshGraphormer) for fixing specific seeds.
-* **`experimental/`**: Drafts and work-in-progress nodes.
+This directory follows a split-repository structure for security and privacy.
 
-### `experiments/`
-Documentation, logs, and comparative analysis reports.
-* Contains markdown reports (`.md`) detailing sampler comparisons, scheduler tests, and optimization logs.
-* Each experiment folder follows the naming convention: `YYYY-MM-DD_topic-name`.
+* **`workflows/private/`**: (Sub-Repository)
+    * Contains the actual `.json` workflow files, prompts, and thumbnail assets.
+    * **Note:** This folder is a separate private Git repository. It is ignored by the main public repo to protect sensitive prompt engineering and assets.
 
-## 🚀 Usage
-* **Workflows:** Drag and drop the `.json` (or associated `.png`) files directly into ComfyUI.
-* **Reports:** Read the markdown files in `experiments/` to understand the rationale behind specific workflow settings.
+#### Workflow Categories (Inside Private):
+* **`master/`**: Production-ready pipelines (e.g., NoobAI XL + FaceDetailer).
+* **`highres/`**: Upscaling and refinement pipelines.
+* **`repair/`**: Surgical tools (MeshGraphormer) for fixing specific failures.
+* **`experimental/`**: Drafts and research nodes.
 
-## 📝 Current Focus
+## 🚀 Current Baseline (Jan 2026)
 * **Model:** NoobAI XL
-* **Optimization:** Refining Sampler (Euler A) vs. Scheduler interactions.
-* **Pipeline:** Migrating from destructive hand-repair techniques to non-invasive refinement pipelines.
+* **Sampler:** `euler_ancestral` (Euler A)
+* **Scheduler:** `simple`
+* **Detailing:** Face Only (Hand Detailer disabled in Master).
