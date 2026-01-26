@@ -1,0 +1,7441 @@
+{
+  "id": "af4f02e2-2816-424f-a60c-285088e97e18",
+  "revision": 0,
+  "last_node_id": 183,
+  "last_link_id": 3390,
+  "nodes": [
+    {
+      "id": 94,
+      "type": "IPAdapterModelLoader",
+      "pos": [
+        -500,
+        -2620
+      ],
+      "size": [
+        300,
+        60
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 0,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IPADAPTER",
+          "type": "IPADAPTER",
+          "links": [
+            212
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ipadapter_plus",
+        "ver": "2.0.0",
+        "Node name for S&R": "IPAdapterModelLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "ipadapter_file": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "noobIPAMARK1_mark1.safetensors"
+      ]
+    },
+    {
+      "id": 96,
+      "type": "IPAdapterAdvanced",
+      "pos": [
+        300,
+        -2720
+      ],
+      "size": [
+        300,
+        280
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 28,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 211
+        },
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "link": 212
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 213
+        },
+        {
+          "name": "image_negative",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "attn_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "clip_vision",
+          "shape": 7,
+          "type": "CLIP_VISION",
+          "link": 214
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            210
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ipadapter_plus",
+        "ver": "2.0.0",
+        "Node name for S&R": "IPAdapterAdvanced",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "weight": true,
+            "weight_type": true,
+            "combine_embeds": true,
+            "start_at": true,
+            "end_at": true,
+            "embeds_scaling": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        0.5,
+        "linear",
+        "concat",
+        0,
+        1,
+        "K+V w/ C penalty"
+      ]
+    },
+    {
+      "id": 90,
+      "type": "ModelSamplingDiscrete",
+      "pos": [
+        700,
+        -2590
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 207
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            231,
+            1414,
+            1415,
+            1525,
+            2535
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "ModelSamplingDiscrete",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "sampling": true,
+            "zsnr": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "v_prediction",
+        true
+      ]
+    },
+    {
+      "id": 93,
+      "type": "RescaleCFG",
+      "pos": [
+        700,
+        -2720
+      ],
+      "size": [
+        300,
+        60
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 210
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            207
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "RescaleCFG",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "multiplier": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        0.75
+      ]
+    },
+    {
+      "id": 67,
+      "type": "SDBatchLoader",
+      "pos": [
+        -1300,
+        -1310
+      ],
+      "size": [
+        300,
+        560
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "start_index",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "start_index"
+          },
+          "link": 186
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "shape": 6,
+          "type": "*",
+          "links": [
+            2922
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-prompt-reader-node",
+        "ver": "a88722ce8fe081be83d7fddb2ebe88f616b14662",
+        "Node name for S&R": "SDBatchLoader",
+        "aux_id": "receyuki/comfyui-prompt-reader-node",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "path": true,
+            "image_load_limit": true,
+            "start_index": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "sanitized_input_path/",
+        1,
+        0,
+        "sanitized_image.png"
+      ]
+    },
+    {
+      "id": 117,
+      "type": "VAEEncodeTiled",
+      "pos": [
+        800,
+        -1550
+      ],
+      "size": [
+        300,
+        150
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 1289
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1285
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            306
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "VAEEncodeTiled",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        512,
+        64,
+        64,
+        8
+      ]
+    },
+    {
+      "id": 6,
+      "type": "KSampler",
+      "pos": [
+        1300,
+        -1830
+      ],
+      "size": [
+        300,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 231
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 1265
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 1266
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 306
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1298
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 223
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": 175
+        },
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": 174
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": 1307
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": 171
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            312
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "seed": false,
+            "steps": true,
+            "cfg": true,
+            "sampler_name": true,
+            "scheduler": true,
+            "denoise": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        348151200157083,
+        "randomize",
+        16,
+        5,
+        "euler",
+        "sgm_uniform",
+        0.3
+      ]
+    },
+    {
+      "id": 118,
+      "type": "VAEDecodeTiled",
+      "pos": [
+        1700,
+        -1830
+      ],
+      "size": [
+        300,
+        150
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 312
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 311
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1349
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "VAEDecodeTiled",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        512,
+        64,
+        64,
+        8
+      ]
+    },
+    {
+      "id": 92,
+      "type": "LoraLoader",
+      "pos": [
+        -900,
+        -2720
+      ],
+      "size": [
+        300,
+        130
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 208
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 209
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            211
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            232,
+            1255,
+            1313,
+            1314,
+            1315,
+            1318,
+            2536,
+            2538,
+            2539
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "LoraLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "lora_name": true,
+            "strength_model": true,
+            "strength_clip": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "sanitized_lora.safetensors",
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "id": 123,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [
+        800,
+        -1810
+      ],
+      "size": [
+        300,
+        190
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 1259
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 1260
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 1262
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1264
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 1263
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            1265
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            1266
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "ControlNetApplyAdvanced",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 150,
+      "type": "ImageScaleBy",
+      "pos": [
+        0,
+        -690
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 34,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1539
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1534,
+            1611,
+            1614,
+            1618
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "ImageScaleBy",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        "lanczos",
+        3
+      ]
+    },
+    {
+      "id": 161,
+      "type": "StringConcatenate",
+      "pos": [
+        6500,
+        -1430
+      ],
+      "size": [
+        300,
+        170
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 1781
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1782
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "StringConcatenate",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "string_a": true,
+            "string_b": true,
+            "delimiter": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        " refined",
+        ""
+      ]
+    },
+    {
+      "id": 87,
+      "type": "StringConcatenate",
+      "pos": [
+        2900,
+        -1330
+      ],
+      "size": [
+        300,
+        170
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 187
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1780,
+            1781
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "StringConcatenate",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "string_a": true,
+            "string_b": true,
+            "delimiter": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "%time_comfy_%seed -- ",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 9,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -500,
+        -1370
+      ],
+      "size": [
+        400,
+        270
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 232
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 2457
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1259,
+            1620
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "artist:, very awa, masterpiece, best quality, recent, newest, absurdres, highres"
+      ]
+    },
+    {
+      "id": 66,
+      "type": "SDPromptReader",
+      "pos": [
+        -900,
+        -1470
+      ],
+      "size": [
+        300,
+        720
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": 2922
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1256,
+            1539
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "POSITIVE",
+          "type": "STRING",
+          "links": [
+            227,
+            2457
+          ]
+        },
+        {
+          "name": "NEGATIVE",
+          "type": "STRING",
+          "links": [
+            226,
+            2458
+          ]
+        },
+        {
+          "name": "SEED",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "STEPS",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "CFG",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "WIDTH",
+          "type": "INT",
+          "links": [
+            2863
+          ]
+        },
+        {
+          "name": "HEIGHT",
+          "type": "INT",
+          "links": [
+            2864
+          ]
+        },
+        {
+          "name": "MODEL_NAME",
+          "type": "*",
+          "links": null
+        },
+        {
+          "name": "FILENAME",
+          "type": "STRING",
+          "links": [
+            187
+          ]
+        },
+        {
+          "name": "SETTINGS",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-prompt-reader-node",
+        "ver": "a88722ce8fe081be83d7fddb2ebe88f616b14662",
+        "Node name for S&R": "SDPromptReader",
+        "aux_id": "receyuki/comfyui-prompt-reader-node",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "image": true,
+            "parameter_index": true,
+            "upload": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "sanitized_image.png",
+        0,
+        "image",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 10,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -500,
+        -1030
+      ],
+      "size": [
+        400,
+        280
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1255
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 2458
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1260,
+            1619
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "worst quality, worst aesthetic, low quality, bad quality, lowres"
+      ]
+    },
+    {
+      "id": 109,
+      "type": "DetailerForEach",
+      "pos": [
+        4500,
+        -1820
+      ],
+      "size": [
+        300,
+        680
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 55,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1395
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 239
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1414
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1314
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1410
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 240
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 241
+        },
+        {
+          "name": "detailer_hook",
+          "shape": 7,
+          "type": "DETAILER_HOOK",
+          "link": null
+        },
+        {
+          "name": "scheduler_func_opt",
+          "shape": 7,
+          "type": "SCHEDULER_FUNC",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2530
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "8.28.0",
+        "Node name for S&R": "DetailerForEach",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "guide_size": true,
+            "guide_size_for": true,
+            "max_size": true,
+            "seed": true,
+            "steps": true,
+            "cfg": true,
+            "sampler_name": true,
+            "scheduler": true,
+            "denoise": true,
+            "feather": true,
+            "noise_mask": true,
+            "force_inpaint": true,
+            "wildcard": true,
+            "cycle": true,
+            "inpaint_model": true,
+            "noise_mask_feather": true,
+            "tiled_encode": true,
+            "tiled_decode": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        1024,
+        true,
+        1536,
+        1038026737208165,
+        "randomize",
+        20,
+        4,
+        "euler_ancestral",
+        "simple",
+        0.3,
+        30,
+        true,
+        true,
+        "",
+        1,
+        false,
+        20,
+        false,
+        false
+      ]
+    },
+    {
+      "id": 101,
+      "type": "ImpactControlNetApplyAdvancedSEGS",
+      "pos": [
+        4100,
+        -1750
+      ],
+      "size": [
+        300,
+        190
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 53,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 235
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 236
+        },
+        {
+          "name": "segs_preprocessor",
+          "shape": 7,
+          "type": "SEGS_PREPROCESSOR",
+          "link": 237
+        },
+        {
+          "name": "control_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 1409
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            239
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "8.28.0",
+        "Node name for S&R": "ImpactControlNetApplyAdvancedSEGS",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "strength": true,
+            "start_percent": true,
+            "end_percent": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 103,
+      "type": "BboxDetectorSEGS",
+      "pos": [
+        3700,
+        -1750
+      ],
+      "size": [
+        300,
+        230
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 51,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 238
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1396
+        },
+        {
+          "name": "detailer_hook",
+          "shape": 7,
+          "type": "DETAILER_HOOK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            235
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "8.28.0",
+        "Node name for S&R": "BboxDetectorSEGS",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "threshold": true,
+            "dilation": true,
+            "crop_factor": true,
+            "drop_size": true,
+            "labels": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        },
+        "ue_convert": false
+      },
+      "widgets_values": [
+        0.5,
+        10,
+        1.5,
+        150,
+        "all"
+      ]
+    },
+    {
+      "id": 99,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        3300,
+        -1750
+      ],
+      "size": [
+        300,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            238
+          ]
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-subpack",
+        "ver": "1.3.5",
+        "Node name for S&R": "UltralyticsDetectorProvider",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "model_name": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "hand_yolov8s.pt"
+      ]
+    },
+    {
+      "id": 102,
+      "type": "ControlNetLoader",
+      "pos": [
+        3700,
+        -1450
+      ],
+      "size": [
+        300,
+        60
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 2,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            236
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "ControlNetLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "control_net_name": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "diffusion_pytorch_model.fp16.safetensors"
+      ]
+    },
+    {
+      "id": 100,
+      "type": "MeshGraphormerDepthMapPreprocessorProvider_for_SEGS //Inspire",
+      "pos": [
+        3700,
+        -1320
+      ],
+      "size": [
+        300,
+        30
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 3,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SEGS_PREPROCESSOR",
+          "type": "SEGS_PREPROCESSOR",
+          "links": [
+            237
+          ]
+        }
+      ],
+      "title": "MeshGraphormer Provider (SEGS)",
+      "properties": {
+        "cnr_id": "comfyui-inspire-pack",
+        "ver": "1.23.0",
+        "Node name for S&R": "MeshGraphormerDepthMapPreprocessorProvider_for_SEGS //Inspire",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 169,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        4900,
+        -1700
+      ],
+      "size": [
+        300,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 4,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            2532
+          ]
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-subpack",
+        "ver": "1.3.5",
+        "Node name for S&R": "UltralyticsDetectorProvider",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "model_name": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "hand_yolov8s.pt"
+      ]
+    },
+    {
+      "id": 164,
+      "type": "SAMLoader",
+      "pos": [
+        4900,
+        -1550
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 5,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAM_MODEL",
+          "type": "SAM_MODEL",
+          "links": [
+            1826
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "8.28.0",
+        "Node name for S&R": "SAMLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "model_name": true,
+            "device_mode": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "sam_vit_b_01ec64.pth",
+        "AUTO"
+      ]
+    },
+    {
+      "id": 105,
+      "type": "CLIPTextEncode",
+      "pos": [
+        3300,
+        -1070
+      ],
+      "size": [
+        300,
+        170
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1313
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            240,
+            2533
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "artist:, very awa, masterpiece, best quality, recent, newest, absurdres, highres,\nultra-detailed,\nanime screencap, shoujo manga, traditional media, graphite \\(medium\\), no lineart,\n(detailed female hands, detailed fingers, fingernails: 1.2),\nchromatic aberration, film grain"
+      ]
+    },
+    {
+      "id": 108,
+      "type": "CLIPTextEncode",
+      "pos": [
+        3300,
+        -830
+      ],
+      "size": [
+        300,
+        170
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1318
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            241,
+            2534
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "worst quality, worst aesthetic, low quality, bad quality, lowres,\n(bad anatomy, deformed, mutated, disfigured:1.2),\n(bad hands, poorly drawn hands, mutated hands: 1.2),\n(fused fingers, liquid fingers: 1.2),\n(poorly drawn fingers, long fingers, long thumb, claw: 1.2),\n(too many fingers, too many hands, wrong hand: 1.4),\n(missing fingers, extra digits: 1.4),\ndoll joints, robot joints,\ngame cg, game screenshot, chibi, realistic, vector art, 3d render, blender \\(medium\\), plastic"
+      ]
+    },
+    {
+      "id": 110,
+      "type": "FaceDetailer",
+      "pos": [
+        6100,
+        -1820
+      ],
+      "size": [
+        301.5500030517578,
+        960
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 57,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2531
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1415
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1315
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1411
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 243
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 244
+        },
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 245
+        },
+        {
+          "name": "sam_model_opt",
+          "shape": 7,
+          "type": "SAM_MODEL",
+          "link": 246
+        },
+        {
+          "name": "segm_detector_opt",
+          "shape": 7,
+          "type": "SEGM_DETECTOR",
+          "link": null
+        },
+        {
+          "name": "detailer_hook",
+          "shape": 7,
+          "type": "DETAILER_HOOK",
+          "link": null
+        },
+        {
+          "name": "scheduler_func_opt",
+          "shape": 7,
+          "type": "SCHEDULER_FUNC",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            2396
+          ]
+        },
+        {
+          "name": "cropped_refined",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "cropped_enhanced_alpha",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "links": null
+        },
+        {
+          "name": "cnet_images",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "FaceDetailer - Face",
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "8.28.0",
+        "Node name for S&R": "FaceDetailer",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "guide_size": true,
+            "guide_size_for": true,
+            "max_size": true,
+            "seed": true,
+            "steps": true,
+            "cfg": true,
+            "sampler_name": true,
+            "scheduler": true,
+            "denoise": true,
+            "feather": true,
+            "noise_mask": true,
+            "force_inpaint": true,
+            "bbox_threshold": true,
+            "bbox_dilation": true,
+            "bbox_crop_factor": true,
+            "sam_detection_hint": true,
+            "sam_dilation": true,
+            "sam_threshold": true,
+            "sam_bbox_expansion": true,
+            "sam_mask_hint_threshold": true,
+            "sam_mask_hint_use_negative": true,
+            "drop_size": true,
+            "wildcard": true,
+            "cycle": true,
+            "inpaint_model": true,
+            "noise_mask_feather": true,
+            "tiled_encode": true,
+            "tiled_decode": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        1024,
+        true,
+        1536,
+        143863709576715,
+        "randomize",
+        16,
+        4,
+        "euler",
+        "simple",
+        0.15,
+        20,
+        true,
+        true,
+        0.5,
+        10,
+        1.5,
+        "center-1",
+        24,
+        0.93,
+        0,
+        0.7,
+        "False",
+        150,
+        "",
+        1,
+        false,
+        20,
+        false,
+        false
+      ]
+    },
+    {
+      "id": 106,
+      "type": "CLIPTextEncode",
+      "pos": [
+        5700,
+        -1740
+      ],
+      "size": [
+        300,
+        170
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2538
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            243
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "artist:, very awa, masterpiece, best quality, recent, newest, absurdres, highres,\nultra-detailed,\nanime screencap, shoujo manga, traditional media, graphite \\(medium\\), no lineart,\n(delicate face: 1.2),\n(expressive eyes, highly-detailed: 1.2),\nchromatic aberration, film grain"
+      ]
+    },
+    {
+      "id": 104,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        5700,
+        -1260
+      ],
+      "size": [
+        300,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            245
+          ]
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-subpack",
+        "ver": "1.3.5",
+        "Node name for S&R": "UltralyticsDetectorProvider",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "model_name": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "face_yolov8m.pt"
+      ]
+    },
+    {
+      "id": 98,
+      "type": "SAMLoader",
+      "pos": [
+        5700,
+        -1110
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAM_MODEL",
+          "type": "SAM_MODEL",
+          "links": [
+            246
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "8.28.0",
+        "Node name for S&R": "SAMLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "model_name": true,
+            "device_mode": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "sam_vit_b_01ec64.pth",
+        "AUTO"
+      ]
+    },
+    {
+      "id": 163,
+      "type": "FaceDetailer",
+      "pos": [
+        5300,
+        -1820
+      ],
+      "size": [
+        301.5500030517578,
+        960
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 56,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2530
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2535
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2536
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 2537
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 2533
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 2534
+        },
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 2532
+        },
+        {
+          "name": "sam_model_opt",
+          "shape": 7,
+          "type": "SAM_MODEL",
+          "link": 1826
+        },
+        {
+          "name": "segm_detector_opt",
+          "shape": 7,
+          "type": "SEGM_DETECTOR",
+          "link": null
+        },
+        {
+          "name": "detailer_hook",
+          "shape": 7,
+          "type": "DETAILER_HOOK",
+          "link": null
+        },
+        {
+          "name": "scheduler_func_opt",
+          "shape": 7,
+          "type": "SCHEDULER_FUNC",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            2531
+          ]
+        },
+        {
+          "name": "cropped_refined",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "cropped_enhanced_alpha",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "links": null
+        },
+        {
+          "name": "cnet_images",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "FaceDetailer - Hands",
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "8.28.0",
+        "Node name for S&R": "FaceDetailer",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "guide_size": true,
+            "guide_size_for": true,
+            "max_size": true,
+            "seed": true,
+            "steps": true,
+            "cfg": true,
+            "sampler_name": true,
+            "scheduler": true,
+            "denoise": true,
+            "feather": true,
+            "noise_mask": true,
+            "force_inpaint": true,
+            "bbox_threshold": true,
+            "bbox_dilation": true,
+            "bbox_crop_factor": true,
+            "sam_detection_hint": true,
+            "sam_dilation": true,
+            "sam_threshold": true,
+            "sam_bbox_expansion": true,
+            "sam_mask_hint_threshold": true,
+            "sam_mask_hint_use_negative": true,
+            "drop_size": true,
+            "wildcard": true,
+            "cycle": true,
+            "inpaint_model": true,
+            "noise_mask_feather": true,
+            "tiled_encode": true,
+            "tiled_decode": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        1024,
+        true,
+        1536,
+        91686170593993,
+        "randomize",
+        20,
+        4,
+        "euler_ancestral",
+        "simple",
+        0.2,
+        20,
+        true,
+        true,
+        0.5,
+        10,
+        1.5,
+        "center-1",
+        24,
+        0.93,
+        0,
+        0.7,
+        "False",
+        150,
+        "",
+        1,
+        false,
+        20,
+        false,
+        false
+      ]
+    },
+    {
+      "id": 107,
+      "type": "CLIPTextEncode",
+      "pos": [
+        5700,
+        -1500
+      ],
+      "size": [
+        300,
+        170
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2539
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            244
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "worst quality, worst aesthetic, low quality, bad quality, lowres,\n(bad anatomy, deformed, mutated, disfigured:1.2),\n(poorly drawn face:1.2), heterochromia, long neck,\nsurprised, clenched teeth, grimace, beard, goatee,\ngame cg, game screenshot, chibi, realistic, vector art, 3d render, blender \\(medium\\), plastic"
+      ]
+    },
+    {
+      "id": 111,
+      "type": "Image Saver Simple",
+      "pos": [
+        6500,
+        -1820
+      ],
+      "size": [
+        300,
+        320
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 58,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2396
+        },
+        {
+          "name": "metadata",
+          "shape": 7,
+          "type": "METADATA",
+          "link": 259
+        },
+        {
+          "name": "filename",
+          "type": "STRING",
+          "widget": {
+            "name": "filename"
+          },
+          "link": 1782
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hashes",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "a1111_params",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "1.19.0",
+        "Node name for S&R": "Image Saver Simple",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "filename": true,
+            "path": true,
+            "extension": true,
+            "lossless_webp": true,
+            "quality_jpeg_or_webp": true,
+            "optimize_png": true,
+            "embed_workflow": true,
+            "save_workflow_as_json": true,
+            "counter": true,
+            "time_format": true,
+            "show_preview": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "%time_comfy_%seed",
+        "",
+        "png",
+        true,
+        100,
+        false,
+        true,
+        false,
+        0,
+        "%Y-%m-%dT%H%M%S",
+        false
+      ]
+    },
+    {
+      "id": 121,
+      "type": "ControlNetLoader",
+      "pos": [
+        400,
+        -1770
+      ],
+      "size": [
+        300,
+        60
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            1262
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "ControlNetLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        "diffusion_pytorch_model.fp16.safetensors"
+      ]
+    },
+    {
+      "id": 122,
+      "type": "TilePreprocessor",
+      "pos": [
+        400,
+        -1640
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2547
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1264
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_controlnet_aux",
+        "ver": "136f125c89aed92ced1b6fbb491e13719b72fcc0",
+        "Node name for S&R": "TilePreprocessor",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        3,
+        512
+      ]
+    },
+    {
+      "id": 71,
+      "type": "ImageScaleBy",
+      "pos": [
+        0,
+        -1550
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1256
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1289,
+            2547
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "ImageScaleBy",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "upscale_method": true,
+            "scale_by": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "nearest-exact",
+        3
+      ]
+    },
+    {
+      "id": 141,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [
+        800,
+        -650
+      ],
+      "size": [
+        300,
+        190
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 45,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 1620
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 1619
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 1503
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1502
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 1506
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            1526
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            1527
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "ControlNetApplyAdvanced",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 142,
+      "type": "ControlNetLoader",
+      "pos": [
+        400,
+        -610
+      ],
+      "size": [
+        300,
+        60
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 9,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            1503
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "ControlNetLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        "diffusion_pytorch_model.fp16.safetensors"
+      ]
+    },
+    {
+      "id": 143,
+      "type": "TilePreprocessor",
+      "pos": [
+        400,
+        -480
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 41,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1618
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1502
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_controlnet_aux",
+        "ver": "136f125c89aed92ced1b6fbb491e13719b72fcc0",
+        "Node name for S&R": "TilePreprocessor",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        3,
+        512
+      ]
+    },
+    {
+      "id": 160,
+      "type": "Image Saver Simple",
+      "pos": [
+        2900,
+        -1720
+      ],
+      "size": [
+        300,
+        320
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 54,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1778
+        },
+        {
+          "name": "metadata",
+          "shape": 7,
+          "type": "METADATA",
+          "link": 1779
+        },
+        {
+          "name": "filename",
+          "type": "STRING",
+          "widget": {
+            "name": "filename"
+          },
+          "link": 1780
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hashes",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "a1111_params",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "1.19.0",
+        "Node name for S&R": "Image Saver Simple",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "filename": true,
+            "path": true,
+            "extension": true,
+            "lossless_webp": true,
+            "quality_jpeg_or_webp": true,
+            "optimize_png": true,
+            "embed_workflow": true,
+            "save_workflow_as_json": true,
+            "counter": true,
+            "time_format": true,
+            "show_preview": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "%time_comfy_%seed",
+        "",
+        "png",
+        true,
+        100,
+        false,
+        true,
+        false,
+        0,
+        "%Y-%m-%dT%H%M%S",
+        false
+      ]
+    },
+    {
+      "id": 63,
+      "type": "Image Saver Metadata",
+      "pos": [
+        2500,
+        -1470
+      ],
+      "size": [
+        300,
+        520
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "modelname",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "modelname"
+          },
+          "link": 229
+        },
+        {
+          "name": "positive",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "positive"
+          },
+          "link": 227
+        },
+        {
+          "name": "negative",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "negative"
+          },
+          "link": 226
+        },
+        {
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 183
+        },
+        {
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 184
+        },
+        {
+          "name": "seed_value",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "seed_value"
+          },
+          "link": 1299
+        },
+        {
+          "name": "steps",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 1297
+        },
+        {
+          "name": "cfg",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": 1296
+        },
+        {
+          "name": "sampler_name",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": 167
+        },
+        {
+          "name": "scheduler_name",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "scheduler_name"
+          },
+          "link": 169
+        },
+        {
+          "name": "denoise",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": 1293
+        }
+      ],
+      "outputs": [
+        {
+          "name": "metadata",
+          "type": "METADATA",
+          "links": [
+            259,
+            1779
+          ]
+        },
+        {
+          "name": "hashes",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "a1111_params",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "1.19.0",
+        "Node name for S&R": "Image Saver Metadata",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "modelname": true,
+            "positive": true,
+            "negative": true,
+            "width": true,
+            "height": true,
+            "seed_value": true,
+            "steps": true,
+            "cfg": true,
+            "sampler_name": true,
+            "scheduler_name": true,
+            "denoise": true,
+            "clip_skip": true,
+            "additional_hashes": true,
+            "download_civitai_data": true,
+            "easy_remix": true,
+            "custom": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "unknown",
+        "unknown",
+        512,
+        512,
+        0,
+        35,
+        4,
+        "euler",
+        "sgm_uniform",
+        1,
+        0,
+        "",
+        false,
+        false,
+        ""
+      ]
+    },
+    {
+      "id": 136,
+      "type": "ImpactMakeImageBatch",
+      "pos": [
+        2100,
+        -1830
+      ],
+      "size": [
+        300,
+        70
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 49,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1349
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 1622
+        },
+        {
+          "name": "image3",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1348,
+            1395,
+            1396,
+            1646,
+            1778
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "8.28.0",
+        "Node name for S&R": "ImpactMakeImageBatch",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 82,
+      "type": "GetImageSize",
+      "pos": [
+        2200,
+        -1260
+      ],
+      "size": [
+        200,
+        124
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 50,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1348
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            183
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            184
+          ]
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "GetImageSize",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 73,
+      "type": "Input Parameters (Image Saver)",
+      "pos": [
+        800,
+        -1210
+      ],
+      "size": [
+        300,
+        310
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            1298,
+            1299,
+            1623
+          ]
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "links": [
+            223,
+            1297,
+            1624
+          ]
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "links": [
+            175,
+            1296,
+            1625
+          ]
+        },
+        {
+          "name": "sampler",
+          "type": "COMBO",
+          "links": [
+            174,
+            1295,
+            1627
+          ]
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "links": [
+            1294,
+            1307,
+            1628
+          ]
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "links": [
+            171,
+            1293,
+            1626
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "1.19.0",
+        "Node name for S&R": "Input Parameters (Image Saver)",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "seed": true,
+            "steps": true,
+            "cfg": true,
+            "sampler": true,
+            "scheduler": true,
+            "denoise": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {},
+          "output_not_broadcasting": {
+            "steps": true,
+            "cfg": true,
+            "sampler": true,
+            "scheduler": true,
+            "denoise": true
+          },
+          "input_regex": "^seed$"
+        },
+        "ue_convert": true
+      },
+      "widgets_values": [
+        243527075742670,
+        "randomize",
+        20,
+        5,
+        "euler",
+        "sgm_uniform",
+        0.7
+      ]
+    },
+    {
+      "id": 78,
+      "type": "Any to String (Image Saver)",
+      "pos": [
+        2100,
+        -1120
+      ],
+      "size": [
+        200,
+        30
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "link": 1294
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            169
+          ]
+        }
+      ],
+      "title": "Scheduler Name",
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "1.19.0",
+        "Node name for S&R": "Any to String (Image Saver)",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 77,
+      "type": "Any to String (Image Saver)",
+      "pos": [
+        1800,
+        -1140
+      ],
+      "size": [
+        200,
+        30
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "link": 1295
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            167
+          ]
+        }
+      ],
+      "title": "Sampler Name",
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "1.19.0",
+        "Node name for S&R": "Any to String (Image Saver)",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 147,
+      "type": "UltimateSDUpscaleNoUpscale",
+      "pos": [
+        1700,
+        -690
+      ],
+      "size": [
+        300,
+        570
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 47,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "upscaled_image",
+          "type": "IMAGE",
+          "link": 1534
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1525
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 1526
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 1527
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 2546
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1623
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 1624
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": 1625
+        },
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": 1627
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": 1628
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": 1626
+        },
+        {
+          "name": "tile_width",
+          "type": "INT",
+          "widget": {
+            "name": "tile_width"
+          },
+          "link": 2863
+        },
+        {
+          "name": "tile_height",
+          "type": "INT",
+          "widget": {
+            "name": "tile_height"
+          },
+          "link": 2864
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1622
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ultimatesdupscale",
+        "ver": "1.6.2",
+        "Node name for S&R": "UltimateSDUpscaleNoUpscale",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        488144993763862,
+        "randomize",
+        30,
+        4,
+        "euler",
+        "sgm_uniform",
+        0.5,
+        "Chess",
+        832,
+        1216,
+        32,
+        32,
+        "None",
+        0.3,
+        64,
+        16,
+        32,
+        true,
+        false
+      ]
+    },
+    {
+      "id": 95,
+      "type": "CLIPVisionLoader",
+      "pos": [
+        -100,
+        -2310
+      ],
+      "size": [
+        300,
+        60
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 11,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            214
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "CLIPVisionLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "clip_name": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors"
+      ]
+    },
+    {
+      "id": 88,
+      "type": "PrepImageForClipVision",
+      "pos": [
+        -100,
+        -2490
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 205
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            213
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ipadapter_plus",
+        "ver": "2.0.0",
+        "Node name for S&R": "PrepImageForClipVision",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "interpolation": true,
+            "crop_position": true,
+            "sharpening": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "LANCZOS",
+        "top",
+        0
+      ]
+    },
+    {
+      "id": 85,
+      "type": "PrimitiveInt",
+      "pos": [
+        -1300,
+        -1470
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            186
+          ]
+        }
+      ],
+      "title": "Start Index",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "PrimitiveInt",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "value": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        39,
+        "increment"
+      ]
+    },
+    {
+      "id": 97,
+      "type": "LoadImage",
+      "pos": [
+        -500,
+        -2490
+      ],
+      "size": [
+        300,
+        330
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 13,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            205
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "image": true,
+            "upload": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        },
+        "image": "clipspace/clipspace-painted-masked-1766914351132.png [input]"
+      },
+      "widgets_values": [
+        "sanitized_image.png",
+        "image"
+      ]
+    },
+    {
+      "id": 91,
+      "type": "Checkpoint Loader with Name (Image Saver)",
+      "pos": [
+        -1300,
+        -2720
+      ],
+      "size": [
+        300,
+        120
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            208
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            209
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            311,
+            1263,
+            1285,
+            1409,
+            1410,
+            1411,
+            1506,
+            2537,
+            2546
+          ]
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "links": [
+            229
+          ]
+        }
+      ],
+      "title": "Checkpoint Loader with Name",
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "1.19.0",
+        "Node name for S&R": "Checkpoint Loader with Name (Image Saver)",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "ckpt_name": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "NoobAI-XL-Vpred-v1.0.safetensors"
+      ]
+    },
+    {
+      "id": 174,
+      "type": "MarkdownNote",
+      "pos": [
+        4100,
+        -1490
+      ],
+      "size": [
+        300,
+        350
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 15,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "## Hand Fix (MeshGraphormer)\n**Method:** `BBOX Detector` -> `MeshGraphormer` -> `Detailer (SEGS)`.\n**Best for:** Reconstructing broken hands using 3D depth guidance.\n\n### Set 1: Standard Canvas (1216 x 832)\n* **guide_size**: `1024`\n* **max_size**: `1536`\n* **feather**: `20`\n* **force_inpaint**: `True`\n* **BBOX drop_size**: `15`\n* **BBOX crop_factor**: `2.5`\n* **BBOX dilation**: `10`\n\n### Set 2: High-Res Canvas (3648 x 2496)\n* **guide_size**: `1024`\n* **max_size**: `1536`\n* **feather**: `30`\n* **force_inpaint**: `True`\n* **BBOX drop_size**: `150`\n* **BBOX crop_factor**: `1.5`\n* **BBOX dilation**: `10`\n  * *Reason: Reduced from 30. On 4K, 10px is enough to clear the edges. Higher values risk \"Context Explosion\".*\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 175,
+      "type": "MarkdownNote",
+      "pos": [
+        4900,
+        -1390
+      ],
+      "size": [
+        300,
+        360
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 16,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "## Hand Fix (FaceDetailer + SAM)\n**Method:** `FaceDetailer` node with SAM enabled.\n**Best for:** \"Invisible\" fixes (No dark rectangles).\n\n### Set 1: Standard Canvas (1216 x 832)\n* **guide_size**: `1024`\n* **max_size**: `1536`\n* **feather**: `10`\n* **force_inpaint**: `True`\n* **bbox_drop_size**: `15`\n* **bbox_crop_factor**: `2.5`\n* **bbox_dilation**: `10`\n* **sam_dilation**: `12`\n\n### Set 2: High-Res Canvas (3648 x 2496)\n* **guide_size**: `1024`\n* **max_size**: `1536`\n* **feather**: `20`\n* **force_inpaint**: `True`\n* **bbox_drop_size**: `150`\n* **bbox_crop_factor**: `1.5`\n* **bbox_dilation**: `10`\n* **sam_dilation**: `24`\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 176,
+      "type": "MarkdownNote",
+      "pos": [
+        6500,
+        -1190
+      ],
+      "size": [
+        300,
+        330
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "## Face Fix (FaceDetailer for Face)\n**Method:** `FaceDetailer` specifically targeting **Faces**.\n**Input:** Connect to the output of the Hand Detailer.\n\n### Set 1: Standard Canvas (1216 x 832)\n* **guide_size**: `1024`\n* **max_size**: `1536`\n* **feather**: `10`\n* **force_inpaint**: `True`\n* **bbox_crop_factor**: `2.0`\n* **bbox_drop_size**: `30`\n* **bbox_dilation**: `10`\n* **sam_dilation**: `12`\n\n### Set 2: High-Res Canvas (3648 x 2496)\n* **guide_size**: `1024`\n* **max_size**: `1536`\n* **feather**: `20`\n* **force_inpaint**: `True`\n* **bbox_crop_factor**: `1.5`\n  * *Reason: MANDATORY. Prevents large face crops from exceeding canvas size.*\n* **bbox_drop_size**: `200`\n  * *Reason: MANDATORY. Ignores background faces/clouds.*\n* **bbox_dilation**: `10`\n* **sam_dilation**: `24`"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 179,
+      "type": "MarkdownNote",
+      "pos": [
+        -900,
+        -2520
+      ],
+      "size": [
+        300,
+        130
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "**Strategy:** Lower LoRA strength to prioritize the native checkpoint's superior texture quality.\n\n**Safety:** **ControlNet Tile** (`strength = 1.0`) maintains identity and likeness, even with reduced LoRA.\n\n**Benefit:** In this high-constraint environment, **High Denoise** can be used to maximize detail without amplifying the LoRA's flaws (e.g., artifacts or burns)."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 154,
+      "type": "MarkdownNote",
+      "pos": [
+        0,
+        -1290
+      ],
+      "size": [
+        250,
+        460
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "### Global Settings\n- **sampler**: `euler`\n- **scheduler**: `sgm_uniform`\n- **control net**: Tile\n- **cn strength**: `1.0` - Lock the structure.\n- **cn end_percent:** `1.0` - Prevents seams drifting at the end.\n\nUse **Max Constraint (1.0)** to prevent hallucinations, which allows us to use **High Denoise (0.6 - 0.75)** to force texture creation.\n\n### USDU Specific Settings\n\n- **tile dimensions**: `1024x1024` or original image dimensions\n- **tile_padding**: `32` or `64`\n- **mask_blur**: `32`\n\n#### 32/32\nBest for Speed & Quality. Uses 100% of the padding to fade.\n\nProcessing resolution is 1056px (1024+32). Staying above 1024px keeps SDXL sharp.\n\n#### 64/32\nUse if 32/32 shows faint lines. Adds a 32px \"Safety Buffer\" of valid pixels before the fade begins.\n\n#### 128/32\nSlow and worse quality.\n\n#### Seam Fix Strategy\n\n- **mode:** `None`\n\nSeam Fix often draws \"Detailed Strips\" that clash with the smoother background.\n\n#### Extra Notes\nTurn off LoRA and disconnect both text input of the CLIP Text Encode can sometime help reduce the banding/vignetting issues. \n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 178,
+      "type": "MarkdownNote",
+      "pos": [
+        500,
+        -1290
+      ],
+      "size": [
+        250,
+        460
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "### Method 2: Tiled Upscale (USDU)\n\n#### Recommended Settings\n\n*Prerequisite: ControlNet Tile Strength and End Percentage are both set to 1.0.*\n\n##### Set 1: General Safety\n\n- **upscale_method**: `lanczos`\n- **steps**: `16 - 24`\n- **cfg**: `3.5 - 5.0`\n- **sampler**: `euler_ancestral`\n- **denoise**: `0.4 - 0.5`\n- **tile_padding**: `32` or `64`\n- **mask_blur**: `32`\n- **tile dimensions**: `1024x1024` or original image's dimensions\n\n##### Set 2: Fast Lanczos\n\n- **upscale_method**: `lanczos`\n- **steps**: `16`\n- **cfg**: `5.0`\n- **sampler**: `euler_ancestral`\n- **denoise**: `0.6`\n- **tile_padding**: `32`\n- **mask_blur**: `32`\n- **tile dimensions**: original image's dimensions\n\n##### Set 3: Fast Nearest (Textured)\n\n- **upscale_method**: `nearest-exact`\n- **steps**: `16`\n- **cfg**: `5.0`\n- **sampler**: `euler_ancestral`\n- **denoise**: `0.6`\n- **tile_padding**: `32`\n- **mask_blur**: `32`\n- **tile dimensions**: original image's dimensions\n\n##### Observation\n\nGenerally, **USDU requires higher denoise** than **Pure Latent Upscale** (often >= 0.75).\n\nHowever, Tiled Upscaling is prone to banding and vignetting issues (visible seams/grids). Lowering the denoise helps reduce this vignetting.\n\nThis creates a contradiction. A common compromise is to use `euler_ancestral`, which functions well at lower `denoise` levels, thereby helping to prevent vignetting. However, this comes at the cost of reduced texture detail, particularly when `upscale_method` is set to `nearest-exact`.\n\nIt is important to note that if `denoise`, `steps`, and `cfg` are held constant, `euler_ancestral` actually produces **more obvious** banding/vignetting than `euler`.\n\nUltimately, it is difficult to completely prevent banding/vignetting when using the high denoise levels typically required by `nearest-exact`. The recommended solution is to either switch to `lanczos` or incorporate a model upscaler (like `Ultramix Restore`), although the latter is not used in this specific workflow.\n\n#### Avoid Settings\n\n##### `upscale_method: bicubic`\n\n`bicubic` performs significantly worse than other methods.\n\n##### Low Denoise\n**Denoise values lower than 0.4 often result in images softer than the original.** All the noise energy is consumed by *polishing* upscaling artifacts (anti-aliasing), leaving insufficient energy to invent new details."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 177,
+      "type": "MarkdownNote",
+      "pos": [
+        250,
+        -1290
+      ],
+      "size": [
+        250,
+        460
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "### Method 1: Pure Upscale (Preferred)\n\n#### Recommended Settings\n\n*Prerequisite: ControlNet Tile Strength and End Percentage are both set to 1.0.*\n\n##### Set 1: General Safety\n\n- **upscale_method**: `lanczos`\n- **steps**: `16 - 24`\n- **cfg**: `3.5 - 5.0`\n- **sampler**: `euler`\n- **denoise**: `0.6 - 0.75`\n\n##### Set 2: Clear Graphite Texture\n\n- **upscale_method**: `nearest-exact`\n- **steps**: `20` (Quality degrades at 24)\n- **cfg**: `5.0`\n- **sampler**: `euler`\n- **denoise**: `0.7`\n\n##### Set 3: Softer & Prone to Drift\n\n- **upscale_method**: `nearest-exact`\n- **steps**: `24`\n- **cfg**: `5.0`\n- **sampler**: `euler_ancestral`\n- **denoise**: `0.7`\n\n##### Set 4: Sharp & Clean\n\n- **upscale_method**: `lanczos`\n- **steps**: `24`\n- **cfg**: `5.0`\n- **sampler**: `euler_ancestral`\n- **denoise**: `0.7`\n\n##### Why Nearest-Exact\n\nPreserves \"Textured Outlines\" and grain. Best for retro or pixel-art styles.\n\nThe pixelated outlines serve as the best guide when combining with graphite-style prompts.\n\nHigh `denoise` is mandatory.\n\n- `0.6 <= denoise <= 0.75`\n\n##### Why Lanczos\n\nProduces sharp and clean outlines. It requires significantly lower `denoise` than `nearest-exact` to produce acceptable results.\n\nUsing settings identical to `nearest-exact` usually yields high-quality images, though with less outline texture compared to `nearest-exact`.\n\n#### Avoid Settings\n\n##### `upscale_method: bicubic`\n\n`bicubic` performs significantly worse than `lanczos` and `nearest-exact` in almost all identical scenarios.\n\n##### Low Denoise\n**Denoise values lower than 0.4 often result in images softer than the original.** All the noise energy is consumed by *polishing* upscaling artifacts (anti-aliasing), leaving insufficient energy to invent new details."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      167,
+      77,
+      0,
+      63,
+      8,
+      "STRING"
+    ],
+    [
+      169,
+      78,
+      0,
+      63,
+      9,
+      "STRING"
+    ],
+    [
+      171,
+      73,
+      5,
+      6,
+      9,
+      "FLOAT"
+    ],
+    [
+      174,
+      73,
+      3,
+      6,
+      7,
+      "COMBO"
+    ],
+    [
+      175,
+      73,
+      2,
+      6,
+      6,
+      "FLOAT"
+    ],
+    [
+      183,
+      82,
+      0,
+      63,
+      3,
+      "INT"
+    ],
+    [
+      184,
+      82,
+      1,
+      63,
+      4,
+      "INT"
+    ],
+    [
+      186,
+      85,
+      0,
+      67,
+      0,
+      "INT"
+    ],
+    [
+      187,
+      66,
+      10,
+      87,
+      0,
+      "STRING"
+    ],
+    [
+      205,
+      97,
+      0,
+      88,
+      0,
+      "IMAGE"
+    ],
+    [
+      207,
+      93,
+      0,
+      90,
+      0,
+      "MODEL"
+    ],
+    [
+      208,
+      91,
+      0,
+      92,
+      0,
+      "MODEL"
+    ],
+    [
+      209,
+      91,
+      1,
+      92,
+      1,
+      "CLIP"
+    ],
+    [
+      210,
+      96,
+      0,
+      93,
+      0,
+      "MODEL"
+    ],
+    [
+      211,
+      92,
+      0,
+      96,
+      0,
+      "MODEL"
+    ],
+    [
+      212,
+      94,
+      0,
+      96,
+      1,
+      "IPADAPTER"
+    ],
+    [
+      213,
+      88,
+      0,
+      96,
+      2,
+      "IMAGE"
+    ],
+    [
+      214,
+      95,
+      0,
+      96,
+      5,
+      "CLIP_VISION"
+    ],
+    [
+      223,
+      73,
+      1,
+      6,
+      5,
+      "INT"
+    ],
+    [
+      226,
+      66,
+      3,
+      63,
+      2,
+      "STRING"
+    ],
+    [
+      227,
+      66,
+      2,
+      63,
+      1,
+      "STRING"
+    ],
+    [
+      229,
+      91,
+      3,
+      63,
+      0,
+      "STRING"
+    ],
+    [
+      231,
+      90,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      232,
+      92,
+      1,
+      9,
+      0,
+      "CLIP"
+    ],
+    [
+      235,
+      103,
+      0,
+      101,
+      0,
+      "SEGS"
+    ],
+    [
+      236,
+      102,
+      0,
+      101,
+      1,
+      "CONTROL_NET"
+    ],
+    [
+      237,
+      100,
+      0,
+      101,
+      2,
+      "SEGS_PREPROCESSOR"
+    ],
+    [
+      238,
+      99,
+      0,
+      103,
+      0,
+      "BBOX_DETECTOR"
+    ],
+    [
+      239,
+      101,
+      0,
+      109,
+      1,
+      "SEGS"
+    ],
+    [
+      240,
+      105,
+      0,
+      109,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      241,
+      108,
+      0,
+      109,
+      6,
+      "CONDITIONING"
+    ],
+    [
+      243,
+      106,
+      0,
+      110,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      244,
+      107,
+      0,
+      110,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      245,
+      104,
+      0,
+      110,
+      6,
+      "BBOX_DETECTOR"
+    ],
+    [
+      246,
+      98,
+      0,
+      110,
+      7,
+      "SAM_MODEL"
+    ],
+    [
+      259,
+      63,
+      0,
+      111,
+      1,
+      "METADATA"
+    ],
+    [
+      306,
+      117,
+      0,
+      6,
+      3,
+      "LATENT"
+    ],
+    [
+      311,
+      91,
+      2,
+      118,
+      1,
+      "VAE"
+    ],
+    [
+      312,
+      6,
+      0,
+      118,
+      0,
+      "LATENT"
+    ],
+    [
+      1255,
+      92,
+      1,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      1256,
+      66,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      1259,
+      9,
+      0,
+      123,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      1260,
+      10,
+      0,
+      123,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      1262,
+      121,
+      0,
+      123,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      1263,
+      91,
+      2,
+      123,
+      4,
+      "VAE"
+    ],
+    [
+      1264,
+      122,
+      0,
+      123,
+      3,
+      "IMAGE"
+    ],
+    [
+      1265,
+      123,
+      0,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      1266,
+      123,
+      1,
+      6,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      1285,
+      91,
+      2,
+      117,
+      1,
+      "VAE"
+    ],
+    [
+      1289,
+      71,
+      0,
+      117,
+      0,
+      "IMAGE"
+    ],
+    [
+      1293,
+      73,
+      5,
+      63,
+      10,
+      "FLOAT"
+    ],
+    [
+      1294,
+      73,
+      4,
+      78,
+      0,
+      "COMBO"
+    ],
+    [
+      1295,
+      73,
+      3,
+      77,
+      0,
+      "COMBO"
+    ],
+    [
+      1296,
+      73,
+      2,
+      63,
+      7,
+      "FLOAT"
+    ],
+    [
+      1297,
+      73,
+      1,
+      63,
+      6,
+      "INT"
+    ],
+    [
+      1298,
+      73,
+      0,
+      6,
+      4,
+      "INT"
+    ],
+    [
+      1299,
+      73,
+      0,
+      63,
+      5,
+      "INT"
+    ],
+    [
+      1307,
+      73,
+      4,
+      6,
+      8,
+      "COMBO"
+    ],
+    [
+      1313,
+      92,
+      1,
+      105,
+      0,
+      "CLIP"
+    ],
+    [
+      1314,
+      92,
+      1,
+      109,
+      3,
+      "CLIP"
+    ],
+    [
+      1315,
+      92,
+      1,
+      110,
+      2,
+      "CLIP"
+    ],
+    [
+      1318,
+      92,
+      1,
+      108,
+      0,
+      "CLIP"
+    ],
+    [
+      1348,
+      136,
+      0,
+      82,
+      0,
+      "IMAGE"
+    ],
+    [
+      1349,
+      118,
+      0,
+      136,
+      0,
+      "IMAGE"
+    ],
+    [
+      1395,
+      136,
+      0,
+      109,
+      0,
+      "IMAGE"
+    ],
+    [
+      1396,
+      136,
+      0,
+      103,
+      1,
+      "IMAGE"
+    ],
+    [
+      1409,
+      91,
+      2,
+      101,
+      4,
+      "VAE"
+    ],
+    [
+      1410,
+      91,
+      2,
+      109,
+      4,
+      "VAE"
+    ],
+    [
+      1411,
+      91,
+      2,
+      110,
+      3,
+      "VAE"
+    ],
+    [
+      1414,
+      90,
+      0,
+      109,
+      2,
+      "MODEL"
+    ],
+    [
+      1415,
+      90,
+      0,
+      110,
+      1,
+      "MODEL"
+    ],
+    [
+      1502,
+      143,
+      0,
+      141,
+      3,
+      "IMAGE"
+    ],
+    [
+      1503,
+      142,
+      0,
+      141,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      1506,
+      91,
+      2,
+      141,
+      4,
+      "VAE"
+    ],
+    [
+      1525,
+      90,
+      0,
+      147,
+      1,
+      "MODEL"
+    ],
+    [
+      1526,
+      141,
+      0,
+      147,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      1527,
+      141,
+      1,
+      147,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      1534,
+      150,
+      0,
+      147,
+      0,
+      "IMAGE"
+    ],
+    [
+      1539,
+      66,
+      0,
+      150,
+      0,
+      "IMAGE"
+    ],
+    [
+      1611,
+      150,
+      0,
+      152,
+      1,
+      "IMAGE"
+    ],
+    [
+      1614,
+      150,
+      0,
+      152,
+      0,
+      "IMAGE"
+    ],
+    [
+      1618,
+      150,
+      0,
+      143,
+      0,
+      "IMAGE"
+    ],
+    [
+      1619,
+      10,
+      0,
+      141,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      1620,
+      9,
+      0,
+      141,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      1622,
+      147,
+      0,
+      136,
+      1,
+      "IMAGE"
+    ],
+    [
+      1623,
+      73,
+      0,
+      147,
+      5,
+      "INT"
+    ],
+    [
+      1624,
+      73,
+      1,
+      147,
+      6,
+      "INT"
+    ],
+    [
+      1625,
+      73,
+      2,
+      147,
+      7,
+      "FLOAT"
+    ],
+    [
+      1626,
+      73,
+      5,
+      147,
+      10,
+      "FLOAT"
+    ],
+    [
+      1627,
+      73,
+      3,
+      147,
+      8,
+      "COMBO"
+    ],
+    [
+      1628,
+      73,
+      4,
+      147,
+      9,
+      "COMBO"
+    ],
+    [
+      1646,
+      136,
+      0,
+      155,
+      0,
+      "IMAGE"
+    ],
+    [
+      1778,
+      136,
+      0,
+      160,
+      0,
+      "IMAGE"
+    ],
+    [
+      1779,
+      63,
+      0,
+      160,
+      1,
+      "METADATA"
+    ],
+    [
+      1780,
+      87,
+      0,
+      160,
+      2,
+      "STRING"
+    ],
+    [
+      1781,
+      87,
+      0,
+      161,
+      0,
+      "STRING"
+    ],
+    [
+      1782,
+      161,
+      0,
+      111,
+      2,
+      "STRING"
+    ],
+    [
+      1826,
+      164,
+      0,
+      163,
+      7,
+      "SAM_MODEL"
+    ],
+    [
+      2396,
+      110,
+      0,
+      111,
+      0,
+      "IMAGE"
+    ],
+    [
+      2457,
+      66,
+      2,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      2458,
+      66,
+      3,
+      10,
+      1,
+      "STRING"
+    ],
+    [
+      2530,
+      109,
+      0,
+      163,
+      0,
+      "IMAGE"
+    ],
+    [
+      2531,
+      163,
+      0,
+      110,
+      0,
+      "IMAGE"
+    ],
+    [
+      2532,
+      169,
+      0,
+      163,
+      6,
+      "BBOX_DETECTOR"
+    ],
+    [
+      2533,
+      105,
+      0,
+      163,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      2534,
+      108,
+      0,
+      163,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      2535,
+      90,
+      0,
+      163,
+      1,
+      "MODEL"
+    ],
+    [
+      2536,
+      92,
+      1,
+      163,
+      2,
+      "CLIP"
+    ],
+    [
+      2537,
+      91,
+      2,
+      163,
+      3,
+      "VAE"
+    ],
+    [
+      2538,
+      92,
+      1,
+      106,
+      0,
+      "CLIP"
+    ],
+    [
+      2539,
+      92,
+      1,
+      107,
+      0,
+      "CLIP"
+    ],
+    [
+      2546,
+      91,
+      2,
+      147,
+      4,
+      "VAE"
+    ],
+    [
+      2547,
+      71,
+      0,
+      122,
+      0,
+      "IMAGE"
+    ],
+    [
+      2863,
+      66,
+      7,
+      147,
+      11,
+      "INT"
+    ],
+    [
+      2864,
+      66,
+      8,
+      147,
+      12,
+      "INT"
+    ],
+    [
+      2922,
+      67,
+      0,
+      66,
+      0,
+      "COMBO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "V-Prediction",
+      "bounding": [
+        670,
+        -2790,
+        360,
+        303.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "IPAdapter",
+      "bounding": [
+        -510,
+        -2790,
+        1120,
+        643.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Detailers",
+      "bounding": [
+        3280,
+        -1960,
+        3550,
+        1307.1999999999998
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "Method 1: Pure Upscale",
+      "bounding": [
+        -10,
+        -1900,
+        2020,
+        513.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "Method 2: Tiled Upscale (USDU)",
+      "bounding": [
+        -10,
+        -760,
+        2020,
+        653.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 9,
+      "title": "Hand Reconstruction: MeshGraphormer",
+      "bounding": [
+        3290,
+        -1910,
+        1520,
+        783.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 10,
+      "title": "Hand Detailer: SAM",
+      "bounding": [
+        4890,
+        -1890,
+        721.5500030517578,
+        1043.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 12,
+      "title": "Face Detailer",
+      "bounding": [
+        5690,
+        -1890,
+        721.5500030517578,
+        1043.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1167815779425692,
+      "offset": [
+        1878.0392361312045,
+        669.7589911479428
+      ]
+    },
+    "workflowRendererVersion": "LG",
+    "ue_links": [
+      {
+        "downstream": 109,
+        "downstream_slot": 12,
+        "upstream": "73",
+        "upstream_slot": 0,
+        "controller": 73,
+        "type": "INT"
+      },
+      {
+        "downstream": 110,
+        "downstream_slot": 14,
+        "upstream": "73",
+        "upstream_slot": 0,
+        "controller": 73,
+        "type": "INT"
+      },
+      {
+        "downstream": 163,
+        "downstream_slot": 14,
+        "upstream": "73",
+        "upstream_slot": 0,
+        "controller": 73,
+        "type": "INT"
+      }
+    ],
+    "reroutes": [
+      {
+        "id": 2,
+        "parentId": 13,
+        "pos": [
+          1010,
+          -2640
+        ],
+        "linkIds": [
+          207
+        ]
+      },
+      {
+        "id": 3,
+        "parentId": 2,
+        "pos": [
+          690,
+          -2640
+        ],
+        "linkIds": [
+          207
+        ]
+      },
+      {
+        "id": 4,
+        "pos": [
+          260,
+          -2300
+        ],
+        "linkIds": [
+          214
+        ]
+      },
+      {
+        "id": 5,
+        "parentId": 6,
+        "pos": [
+          -150,
+          -2680
+        ],
+        "linkIds": [
+          212
+        ]
+      },
+      {
+        "id": 6,
+        "pos": [
+          -150,
+          -2610
+        ],
+        "linkIds": [
+          212
+        ]
+      },
+      {
+        "id": 13,
+        "pos": [
+          1010,
+          -2700
+        ],
+        "linkIds": [
+          207
+        ]
+      },
+      {
+        "id": 14,
+        "parentId": 3,
+        "pos": [
+          690,
+          -2580
+        ],
+        "linkIds": [
+          207
+        ]
+      },
+      {
+        "id": 17,
+        "parentId": 18,
+        "pos": [
+          240,
+          -2660
+        ],
+        "linkIds": [
+          213
+        ]
+      },
+      {
+        "id": 18,
+        "pos": [
+          240,
+          -2480
+        ],
+        "linkIds": [
+          213
+        ]
+      },
+      {
+        "id": 23,
+        "parentId": 4,
+        "pos": [
+          260,
+          -2600
+        ],
+        "linkIds": [
+          214
+        ]
+      },
+      {
+        "id": 24,
+        "parentId": 26,
+        "pos": [
+          -990,
+          -1360
+        ],
+        "linkIds": [
+          186
+        ]
+      },
+      {
+        "id": 25,
+        "parentId": 24,
+        "pos": [
+          -1310,
+          -1360
+        ],
+        "linkIds": [
+          186
+        ]
+      },
+      {
+        "id": 26,
+        "pos": [
+          -990,
+          -1450
+        ],
+        "linkIds": [
+          186
+        ]
+      },
+      {
+        "id": 27,
+        "parentId": 25,
+        "pos": [
+          -1310,
+          -1230
+        ],
+        "linkIds": [
+          186
+        ]
+      },
+      {
+        "id": 28,
+        "pos": [
+          -950,
+          -1290
+        ],
+        "linkIds": [
+          2922
+        ]
+      },
+      {
+        "id": 29,
+        "parentId": 28,
+        "pos": [
+          -950,
+          -1220
+        ],
+        "linkIds": [
+          2922
+        ]
+      },
+      {
+        "id": 77,
+        "parentId": 319,
+        "pos": [
+          -590,
+          -50
+        ],
+        "linkIds": [
+          187
+        ]
+      },
+      {
+        "id": 86,
+        "parentId": 389,
+        "pos": [
+          3650,
+          -1810
+        ],
+        "linkIds": [
+          1395,
+          1396
+        ]
+      },
+      {
+        "id": 106,
+        "pos": [
+          -940,
+          -2660
+        ],
+        "linkIds": [
+          311,
+          1263,
+          1285,
+          1409,
+          1410,
+          1411,
+          1506,
+          2537,
+          2546
+        ]
+      },
+      {
+        "id": 107,
+        "pos": [
+          -960,
+          -2640
+        ],
+        "linkIds": [
+          229
+        ]
+      },
+      {
+        "id": 108,
+        "pos": [
+          -530,
+          -2680
+        ],
+        "linkIds": [
+          232,
+          1255,
+          1313,
+          1314,
+          1315,
+          1318,
+          2536,
+          2538,
+          2539
+        ]
+      },
+      {
+        "id": 109,
+        "parentId": 106,
+        "pos": [
+          -940,
+          -2510
+        ],
+        "linkIds": [
+          311,
+          1263,
+          1285,
+          1409,
+          1410,
+          1411,
+          1506,
+          2537,
+          2546
+        ]
+      },
+      {
+        "id": 110,
+        "parentId": 107,
+        "pos": [
+          -960,
+          -2490
+        ],
+        "linkIds": [
+          229
+        ]
+      },
+      {
+        "id": 111,
+        "parentId": 109,
+        "pos": [
+          -550,
+          -2510
+        ],
+        "linkIds": [
+          311,
+          1263,
+          1285,
+          1409,
+          1410,
+          1411,
+          1506,
+          2537,
+          2546
+        ]
+      },
+      {
+        "id": 112,
+        "parentId": 110,
+        "pos": [
+          -570,
+          -2490
+        ],
+        "linkIds": [
+          229
+        ]
+      },
+      {
+        "id": 118,
+        "pos": [
+          1010,
+          -2570
+        ],
+        "linkIds": [
+          231,
+          1414,
+          1415,
+          1525,
+          2535
+        ]
+      },
+      {
+        "id": 120,
+        "parentId": 118,
+        "pos": [
+          1270,
+          -2570
+        ],
+        "linkIds": [
+          231,
+          1414,
+          1415,
+          1525,
+          2535
+        ]
+      },
+      {
+        "id": 148,
+        "pos": [
+          3760,
+          -1860
+        ],
+        "linkIds": [
+          175,
+          186
+        ]
+      },
+      {
+        "id": 150,
+        "parentId": 148,
+        "pos": [
+          3760,
+          -1600
+        ],
+        "linkIds": [
+          175
+        ]
+      },
+      {
+        "id": 177,
+        "parentId": 77,
+        "pos": [
+          2850,
+          -50
+        ],
+        "linkIds": [
+          187
+        ]
+      },
+      {
+        "id": 179,
+        "parentId": 308,
+        "pos": [
+          3250,
+          -2070
+        ],
+        "linkIds": [
+          1313,
+          1314,
+          1315,
+          1318,
+          2536,
+          2538,
+          2539
+        ]
+      },
+      {
+        "id": 180,
+        "parentId": 179,
+        "pos": [
+          3250,
+          -1060
+        ],
+        "linkIds": [
+          1313,
+          1318
+        ]
+      },
+      {
+        "id": 181,
+        "parentId": 273,
+        "pos": [
+          4070,
+          -2050
+        ],
+        "linkIds": [
+          1409,
+          1410,
+          1411,
+          2537
+        ]
+      },
+      {
+        "id": 183,
+        "parentId": 181,
+        "pos": [
+          4430,
+          -2050
+        ],
+        "linkIds": [
+          1410,
+          1411,
+          2537
+        ]
+      },
+      {
+        "id": 188,
+        "parentId": 468,
+        "pos": [
+          4470,
+          -2030
+        ],
+        "linkIds": [
+          1414,
+          1415,
+          2535
+        ]
+      },
+      {
+        "id": 190,
+        "parentId": 179,
+        "pos": [
+          4450,
+          -2070
+        ],
+        "linkIds": [
+          1314,
+          1315,
+          2536,
+          2538,
+          2539
+        ]
+      },
+      {
+        "id": 196,
+        "parentId": 177,
+        "pos": [
+          2850,
+          -1230
+        ],
+        "linkIds": [
+          187
+        ]
+      },
+      {
+        "id": 197,
+        "parentId": 199,
+        "pos": [
+          6490,
+          -1480
+        ],
+        "linkIds": [
+          1782
+        ]
+      },
+      {
+        "id": 198,
+        "pos": [
+          6810,
+          -1420
+        ],
+        "linkIds": [
+          1782
+        ]
+      },
+      {
+        "id": 199,
+        "parentId": 198,
+        "pos": [
+          6810,
+          -1480
+        ],
+        "linkIds": [
+          1782
+        ]
+      },
+      {
+        "id": 200,
+        "parentId": 197,
+        "pos": [
+          6490,
+          -1760
+        ],
+        "linkIds": [
+          1782
+        ]
+      },
+      {
+        "id": 201,
+        "pos": [
+          2830,
+          -1460
+        ],
+        "linkIds": [
+          259,
+          1779
+        ]
+      },
+      {
+        "id": 202,
+        "parentId": 214,
+        "pos": [
+          6450,
+          -570
+        ],
+        "linkIds": [
+          259
+        ]
+      },
+      {
+        "id": 203,
+        "parentId": 202,
+        "pos": [
+          6450,
+          -1780
+        ],
+        "linkIds": [
+          259
+        ]
+      },
+      {
+        "id": 214,
+        "parentId": 459,
+        "pos": [
+          2830,
+          -560
+        ],
+        "linkIds": [
+          259
+        ]
+      },
+      {
+        "id": 216,
+        "parentId": 238,
+        "pos": [
+          -430,
+          1440
+        ],
+        "linkIds": [
+          175
+        ]
+      },
+      {
+        "id": 234,
+        "parentId": 308,
+        "pos": [
+          -530,
+          -1360
+        ],
+        "linkIds": [
+          232,
+          1255
+        ]
+      },
+      {
+        "id": 235,
+        "parentId": 475,
+        "pos": [
+          -530,
+          -1020
+        ],
+        "linkIds": [
+          1255
+        ]
+      },
+      {
+        "id": 236,
+        "pos": [
+          -50,
+          -1460
+        ],
+        "linkIds": [
+          1256,
+          1539
+        ]
+      },
+      {
+        "id": 237,
+        "parentId": 255,
+        "pos": [
+          770,
+          -2050
+        ],
+        "linkIds": [
+          311,
+          1263,
+          1285,
+          1409,
+          1410,
+          1411,
+          1506,
+          2537,
+          2546
+        ]
+      },
+      {
+        "id": 238,
+        "pos": [
+          730,
+          -1360
+        ],
+        "linkIds": [
+          1259,
+          1620
+        ]
+      },
+      {
+        "id": 239,
+        "pos": [
+          750,
+          -1020
+        ],
+        "linkIds": [
+          1260,
+          1619
+        ]
+      },
+      {
+        "id": 242,
+        "parentId": 467,
+        "pos": [
+          -50,
+          -1530
+        ],
+        "linkIds": [
+          1256
+        ]
+      },
+      {
+        "id": 255,
+        "parentId": 111,
+        "pos": [
+          -550,
+          -2050
+        ],
+        "linkIds": [
+          311,
+          1263,
+          1285,
+          1409,
+          1410,
+          1411,
+          1506,
+          2537,
+          2546
+        ]
+      },
+      {
+        "id": 256,
+        "parentId": 237,
+        "pos": [
+          770,
+          -1720
+        ],
+        "linkIds": [
+          1263,
+          1285,
+          1506
+        ]
+      },
+      {
+        "id": 257,
+        "parentId": 256,
+        "pos": [
+          770,
+          -1520
+        ],
+        "linkIds": [
+          1285,
+          1506
+        ]
+      },
+      {
+        "id": 262,
+        "pos": [
+          350,
+          -1540
+        ],
+        "linkIds": [
+          1289,
+          2547
+        ]
+      },
+      {
+        "id": 263,
+        "pos": [
+          710,
+          -1630
+        ],
+        "linkIds": [
+          1264
+        ]
+      },
+      {
+        "id": 264,
+        "parentId": 263,
+        "pos": [
+          710,
+          -1730
+        ],
+        "linkIds": [
+          1264
+        ]
+      },
+      {
+        "id": 267,
+        "parentId": 238,
+        "pos": [
+          730,
+          -1790
+        ],
+        "linkIds": [
+          1259
+        ]
+      },
+      {
+        "id": 268,
+        "parentId": 239,
+        "pos": [
+          750,
+          -1770
+        ],
+        "linkIds": [
+          1260
+        ]
+      },
+      {
+        "id": 270,
+        "pos": [
+          1130,
+          -1540
+        ],
+        "linkIds": [
+          306
+        ]
+      },
+      {
+        "id": 271,
+        "parentId": 349,
+        "pos": [
+          1270,
+          -1820
+        ],
+        "linkIds": [
+          231,
+          1525
+        ]
+      },
+      {
+        "id": 273,
+        "parentId": 237,
+        "pos": [
+          1650,
+          -2050
+        ],
+        "linkIds": [
+          311,
+          1409,
+          1410,
+          1411,
+          2537,
+          2546
+        ]
+      },
+      {
+        "id": 274,
+        "parentId": 273,
+        "pos": [
+          1650,
+          -1800
+        ],
+        "linkIds": [
+          311,
+          2546
+        ]
+      },
+      {
+        "id": 283,
+        "pos": [
+          1210,
+          -1090
+        ],
+        "linkIds": [
+          171,
+          1293,
+          1626
+        ]
+      },
+      {
+        "id": 284,
+        "pos": [
+          1250,
+          -1110
+        ],
+        "linkIds": [
+          1294,
+          1307,
+          1628
+        ]
+      },
+      {
+        "id": 285,
+        "pos": [
+          1230,
+          -1130
+        ],
+        "linkIds": [
+          174,
+          1295,
+          1627
+        ]
+      },
+      {
+        "id": 286,
+        "pos": [
+          1190,
+          -1150
+        ],
+        "linkIds": [
+          175,
+          1296,
+          1625
+        ]
+      },
+      {
+        "id": 287,
+        "pos": [
+          1170,
+          -1170
+        ],
+        "linkIds": [
+          223,
+          1297,
+          1624
+        ]
+      },
+      {
+        "id": 288,
+        "pos": [
+          1150,
+          -1190
+        ],
+        "linkIds": [
+          1298,
+          1299,
+          1623
+        ]
+      },
+      {
+        "id": 289,
+        "parentId": 288,
+        "pos": [
+          1150,
+          -1730
+        ],
+        "linkIds": [
+          1298
+        ]
+      },
+      {
+        "id": 290,
+        "parentId": 287,
+        "pos": [
+          1170,
+          -1670
+        ],
+        "linkIds": [
+          223
+        ]
+      },
+      {
+        "id": 291,
+        "parentId": 286,
+        "pos": [
+          1190,
+          -1650
+        ],
+        "linkIds": [
+          175
+        ]
+      },
+      {
+        "id": 293,
+        "parentId": 285,
+        "pos": [
+          1230,
+          -1630
+        ],
+        "linkIds": [
+          174
+        ]
+      },
+      {
+        "id": 294,
+        "parentId": 283,
+        "pos": [
+          1210,
+          -1580
+        ],
+        "linkIds": [
+          171
+        ]
+      },
+      {
+        "id": 295,
+        "parentId": 270,
+        "pos": [
+          1130,
+          -1750
+        ],
+        "linkIds": [
+          306
+        ]
+      },
+      {
+        "id": 297,
+        "parentId": 284,
+        "pos": [
+          1250,
+          -1610
+        ],
+        "linkIds": [
+          1307
+        ]
+      },
+      {
+        "id": 305,
+        "parentId": 460,
+        "pos": [
+          2470,
+          -2010
+        ],
+        "linkIds": [
+          229
+        ]
+      },
+      {
+        "id": 306,
+        "parentId": 112,
+        "pos": [
+          -570,
+          -2010
+        ],
+        "linkIds": [
+          229
+        ]
+      },
+      {
+        "id": 308,
+        "parentId": 108,
+        "pos": [
+          -530,
+          -2070
+        ],
+        "linkIds": [
+          232,
+          1255,
+          1313,
+          1314,
+          1315,
+          1318,
+          2536,
+          2538,
+          2539
+        ]
+      },
+      {
+        "id": 309,
+        "parentId": 465,
+        "pos": [
+          -550,
+          -1990
+        ],
+        "linkIds": [
+          227
+        ]
+      },
+      {
+        "id": 310,
+        "parentId": 309,
+        "pos": [
+          2450,
+          -1990
+        ],
+        "linkIds": [
+          227
+        ]
+      },
+      {
+        "id": 311,
+        "parentId": 463,
+        "pos": [
+          -510,
+          -1970
+        ],
+        "linkIds": [
+          226
+        ]
+      },
+      {
+        "id": 312,
+        "parentId": 311,
+        "pos": [
+          2430,
+          -1970
+        ],
+        "linkIds": [
+          226
+        ]
+      },
+      {
+        "id": 313,
+        "pos": [
+          -510,
+          -1400
+        ],
+        "linkIds": [
+          226,
+          2458
+        ]
+      },
+      {
+        "id": 314,
+        "pos": [
+          -550,
+          -1420
+        ],
+        "linkIds": [
+          227,
+          2457
+        ]
+      },
+      {
+        "id": 316,
+        "parentId": 476,
+        "pos": [
+          -510,
+          -1000
+        ],
+        "linkIds": [
+          2458
+        ]
+      },
+      {
+        "id": 317,
+        "parentId": 314,
+        "pos": [
+          -550,
+          -1340
+        ],
+        "linkIds": [
+          2457
+        ]
+      },
+      {
+        "id": 319,
+        "pos": [
+          -590,
+          -1250
+        ],
+        "linkIds": [
+          187
+        ]
+      },
+      {
+        "id": 332,
+        "parentId": 312,
+        "pos": [
+          2430,
+          -1320
+        ],
+        "linkIds": [
+          226
+        ]
+      },
+      {
+        "id": 342,
+        "parentId": 345,
+        "pos": [
+          2410,
+          -1750
+        ],
+        "linkIds": [
+          1348,
+          1646
+        ]
+      },
+      {
+        "id": 343,
+        "parentId": 342,
+        "pos": [
+          2190,
+          -1750
+        ],
+        "linkIds": [
+          1348,
+          1646
+        ]
+      },
+      {
+        "id": 344,
+        "parentId": 343,
+        "pos": [
+          2190,
+          -1250
+        ],
+        "linkIds": [
+          1348,
+          1646
+        ]
+      },
+      {
+        "id": 345,
+        "pos": [
+          2410,
+          -1810
+        ],
+        "linkIds": [
+          1348,
+          1395,
+          1396,
+          1646,
+          1778
+        ]
+      },
+      {
+        "id": 346,
+        "parentId": 310,
+        "pos": [
+          2450,
+          -1380
+        ],
+        "linkIds": [
+          227
+        ]
+      },
+      {
+        "id": 347,
+        "parentId": 305,
+        "pos": [
+          2470,
+          -1400
+        ],
+        "linkIds": [
+          229
+        ]
+      },
+      {
+        "id": 349,
+        "parentId": 120,
+        "pos": [
+          1270,
+          -2030
+        ],
+        "linkIds": [
+          231,
+          1414,
+          1415,
+          1525,
+          2535
+        ]
+      },
+      {
+        "id": 352,
+        "parentId": 236,
+        "pos": [
+          -50,
+          -680
+        ],
+        "linkIds": [
+          1539
+        ]
+      },
+      {
+        "id": 354,
+        "pos": [
+          350,
+          -680
+        ],
+        "linkIds": [
+          1534,
+          1618
+        ]
+      },
+      {
+        "id": 355,
+        "parentId": 354,
+        "pos": [
+          350,
+          -470
+        ],
+        "linkIds": [
+          1618
+        ]
+      },
+      {
+        "id": 356,
+        "pos": [
+          730,
+          -470
+        ],
+        "linkIds": [
+          1502
+        ]
+      },
+      {
+        "id": 357,
+        "parentId": 356,
+        "pos": [
+          730,
+          -570
+        ],
+        "linkIds": [
+          1502
+        ]
+      },
+      {
+        "id": 358,
+        "parentId": 257,
+        "pos": [
+          770,
+          -560
+        ],
+        "linkIds": [
+          1506
+        ]
+      },
+      {
+        "id": 359,
+        "parentId": 239,
+        "pos": [
+          750,
+          -620
+        ],
+        "linkIds": [
+          1619
+        ]
+      },
+      {
+        "id": 360,
+        "parentId": 238,
+        "pos": [
+          730,
+          -640
+        ],
+        "linkIds": [
+          1620
+        ]
+      },
+      {
+        "id": 363,
+        "parentId": 271,
+        "pos": [
+          1270,
+          -660
+        ],
+        "linkIds": [
+          1525
+        ]
+      },
+      {
+        "id": 371,
+        "pos": [
+          2050,
+          -680
+        ],
+        "linkIds": [
+          1622
+        ]
+      },
+      {
+        "id": 372,
+        "parentId": 371,
+        "pos": [
+          2050,
+          -1790
+        ],
+        "linkIds": [
+          1622
+        ]
+      },
+      {
+        "id": 373,
+        "parentId": 288,
+        "pos": [
+          1150,
+          -580
+        ],
+        "linkIds": [
+          1623
+        ]
+      },
+      {
+        "id": 374,
+        "parentId": 287,
+        "pos": [
+          1170,
+          -530
+        ],
+        "linkIds": [
+          1624
+        ]
+      },
+      {
+        "id": 375,
+        "parentId": 286,
+        "pos": [
+          1190,
+          -510
+        ],
+        "linkIds": [
+          1625
+        ]
+      },
+      {
+        "id": 376,
+        "parentId": 283,
+        "pos": [
+          1210,
+          -440
+        ],
+        "linkIds": [
+          1626
+        ]
+      },
+      {
+        "id": 377,
+        "parentId": 285,
+        "pos": [
+          1230,
+          -480
+        ],
+        "linkIds": [
+          1627
+        ]
+      },
+      {
+        "id": 378,
+        "parentId": 284,
+        "pos": [
+          1250,
+          -460
+        ],
+        "linkIds": [
+          1628
+        ]
+      },
+      {
+        "id": 389,
+        "parentId": 345,
+        "pos": [
+          2870,
+          -1810
+        ],
+        "linkIds": [
+          1395,
+          1396,
+          1778
+        ]
+      },
+      {
+        "id": 390,
+        "parentId": 389,
+        "pos": [
+          2870,
+          -1710
+        ],
+        "linkIds": [
+          1778
+        ]
+      },
+      {
+        "id": 391,
+        "parentId": 457,
+        "pos": [
+          2830,
+          -1680
+        ],
+        "linkIds": [
+          1779
+        ]
+      },
+      {
+        "id": 392,
+        "parentId": 393,
+        "pos": [
+          2890,
+          -1380
+        ],
+        "linkIds": [
+          1780
+        ]
+      },
+      {
+        "id": 393,
+        "parentId": 394,
+        "pos": [
+          3210,
+          -1380
+        ],
+        "linkIds": [
+          1780
+        ]
+      },
+      {
+        "id": 394,
+        "pos": [
+          3210,
+          -1320
+        ],
+        "linkIds": [
+          1780,
+          1781
+        ]
+      },
+      {
+        "id": 395,
+        "parentId": 392,
+        "pos": [
+          2890,
+          -1660
+        ],
+        "linkIds": [
+          1780
+        ]
+      },
+      {
+        "id": 396,
+        "parentId": 397,
+        "pos": [
+          6470,
+          -550
+        ],
+        "linkIds": [
+          1781
+        ]
+      },
+      {
+        "id": 397,
+        "parentId": 394,
+        "pos": [
+          3210,
+          -540
+        ],
+        "linkIds": [
+          1781
+        ]
+      },
+      {
+        "id": 398,
+        "parentId": 396,
+        "pos": [
+          6470,
+          -1390
+        ],
+        "linkIds": [
+          1781
+        ]
+      },
+      {
+        "id": 404,
+        "pos": [
+          4460,
+          -820
+        ],
+        "linkIds": [
+          241,
+          2534
+        ]
+      },
+      {
+        "id": 405,
+        "parentId": 404,
+        "pos": [
+          4460,
+          -1680
+        ],
+        "linkIds": [
+          241
+        ]
+      },
+      {
+        "id": 406,
+        "parentId": 86,
+        "pos": [
+          3650,
+          -1720
+        ],
+        "linkIds": [
+          1396
+        ]
+      },
+      {
+        "id": 408,
+        "parentId": 411,
+        "pos": [
+          4030,
+          -1710
+        ],
+        "linkIds": [
+          236
+        ]
+      },
+      {
+        "id": 409,
+        "parentId": 412,
+        "pos": [
+          4050,
+          -1690
+        ],
+        "linkIds": [
+          237
+        ]
+      },
+      {
+        "id": 410,
+        "parentId": 181,
+        "pos": [
+          4070,
+          -1660
+        ],
+        "linkIds": [
+          1409
+        ]
+      },
+      {
+        "id": 411,
+        "pos": [
+          4030,
+          -1440
+        ],
+        "linkIds": [
+          236
+        ]
+      },
+      {
+        "id": 412,
+        "pos": [
+          4050,
+          -1310
+        ],
+        "linkIds": [
+          237
+        ]
+      },
+      {
+        "id": 413,
+        "parentId": 180,
+        "pos": [
+          3250,
+          -820
+        ],
+        "linkIds": [
+          1318
+        ]
+      },
+      {
+        "id": 414,
+        "parentId": 421,
+        "pos": [
+          4440,
+          -1700
+        ],
+        "linkIds": [
+          240
+        ]
+      },
+      {
+        "id": 416,
+        "parentId": 420,
+        "pos": [
+          4410,
+          -1780
+        ],
+        "linkIds": [
+          239
+        ]
+      },
+      {
+        "id": 417,
+        "parentId": 188,
+        "pos": [
+          4470,
+          -1770
+        ],
+        "linkIds": [
+          1414
+        ]
+      },
+      {
+        "id": 418,
+        "parentId": 190,
+        "pos": [
+          4450,
+          -1750
+        ],
+        "linkIds": [
+          1314
+        ]
+      },
+      {
+        "id": 419,
+        "parentId": 183,
+        "pos": [
+          4430,
+          -1730
+        ],
+        "linkIds": [
+          1410
+        ]
+      },
+      {
+        "id": 420,
+        "pos": [
+          4410,
+          -1740
+        ],
+        "linkIds": [
+          239
+        ]
+      },
+      {
+        "id": 421,
+        "pos": [
+          4440,
+          -1060
+        ],
+        "linkIds": [
+          240,
+          2533
+        ]
+      },
+      {
+        "id": 422,
+        "parentId": 421,
+        "pos": [
+          5250,
+          -1060
+        ],
+        "linkIds": [
+          2533
+        ]
+      },
+      {
+        "id": 423,
+        "parentId": 404,
+        "pos": [
+          5270,
+          -820
+        ],
+        "linkIds": [
+          2534
+        ]
+      },
+      {
+        "id": 424,
+        "parentId": 423,
+        "pos": [
+          5270,
+          -1700
+        ],
+        "linkIds": [
+          2534
+        ]
+      },
+      {
+        "id": 425,
+        "parentId": 422,
+        "pos": [
+          5250,
+          -1720
+        ],
+        "linkIds": [
+          2533
+        ]
+      },
+      {
+        "id": 426,
+        "parentId": 190,
+        "pos": [
+          5250,
+          -2070
+        ],
+        "linkIds": [
+          1315,
+          2536,
+          2538,
+          2539
+        ]
+      },
+      {
+        "id": 427,
+        "parentId": 183,
+        "pos": [
+          5230,
+          -2050
+        ],
+        "linkIds": [
+          1411,
+          2537
+        ]
+      },
+      {
+        "id": 428,
+        "parentId": 188,
+        "pos": [
+          5270,
+          -2030
+        ],
+        "linkIds": [
+          1415,
+          2535
+        ]
+      },
+      {
+        "id": 429,
+        "parentId": 428,
+        "pos": [
+          5270,
+          -1790
+        ],
+        "linkIds": [
+          2535
+        ]
+      },
+      {
+        "id": 430,
+        "parentId": 426,
+        "pos": [
+          5250,
+          -1770
+        ],
+        "linkIds": [
+          2536
+        ]
+      },
+      {
+        "id": 431,
+        "parentId": 427,
+        "pos": [
+          5230,
+          -1750
+        ],
+        "linkIds": [
+          2537
+        ]
+      },
+      {
+        "id": 433,
+        "parentId": 434,
+        "pos": [
+          5230,
+          -1660
+        ],
+        "linkIds": [
+          1826
+        ]
+      },
+      {
+        "id": 434,
+        "pos": [
+          5230,
+          -1540
+        ],
+        "linkIds": [
+          1826
+        ]
+      },
+      {
+        "id": 435,
+        "parentId": 446,
+        "pos": [
+          6050,
+          -2070
+        ],
+        "linkIds": [
+          1315
+        ]
+      },
+      {
+        "id": 436,
+        "parentId": 428,
+        "pos": [
+          6070,
+          -2030
+        ],
+        "linkIds": [
+          1415
+        ]
+      },
+      {
+        "id": 437,
+        "parentId": 436,
+        "pos": [
+          6070,
+          -1790
+        ],
+        "linkIds": [
+          1415
+        ]
+      },
+      {
+        "id": 438,
+        "parentId": 435,
+        "pos": [
+          6050,
+          -1770
+        ],
+        "linkIds": [
+          1315
+        ]
+      },
+      {
+        "id": 439,
+        "parentId": 427,
+        "pos": [
+          6030,
+          -2050
+        ],
+        "linkIds": [
+          1411
+        ]
+      },
+      {
+        "id": 440,
+        "parentId": 439,
+        "pos": [
+          6030,
+          -1750
+        ],
+        "linkIds": [
+          1411
+        ]
+      },
+      {
+        "id": 441,
+        "parentId": 443,
+        "pos": [
+          5650,
+          -1730
+        ],
+        "linkIds": [
+          2538,
+          2539
+        ]
+      },
+      {
+        "id": 443,
+        "parentId": 447,
+        "pos": [
+          5650,
+          -2070
+        ],
+        "linkIds": [
+          1315,
+          2538,
+          2539
+        ]
+      },
+      {
+        "id": 444,
+        "parentId": 441,
+        "pos": [
+          5650,
+          -1490
+        ],
+        "linkIds": [
+          2539
+        ]
+      },
+      {
+        "id": 446,
+        "parentId": 443,
+        "pos": [
+          5670,
+          -2070
+        ],
+        "linkIds": [
+          1315
+        ]
+      },
+      {
+        "id": 447,
+        "parentId": 426,
+        "pos": [
+          5630,
+          -2070
+        ],
+        "linkIds": [
+          1315,
+          2538,
+          2539
+        ]
+      },
+      {
+        "id": 448,
+        "parentId": 453,
+        "pos": [
+          6030,
+          -1700
+        ],
+        "linkIds": [
+          244
+        ]
+      },
+      {
+        "id": 449,
+        "parentId": 452,
+        "pos": [
+          6070,
+          -1660
+        ],
+        "linkIds": [
+          246
+        ]
+      },
+      {
+        "id": 450,
+        "parentId": 451,
+        "pos": [
+          6050,
+          -1680
+        ],
+        "linkIds": [
+          245
+        ]
+      },
+      {
+        "id": 451,
+        "pos": [
+          6050,
+          -1250
+        ],
+        "linkIds": [
+          245
+        ]
+      },
+      {
+        "id": 452,
+        "pos": [
+          6070,
+          -1100
+        ],
+        "linkIds": [
+          246
+        ]
+      },
+      {
+        "id": 453,
+        "pos": [
+          6030,
+          -1490
+        ],
+        "linkIds": [
+          244
+        ]
+      },
+      {
+        "id": 454,
+        "parentId": 274,
+        "pos": [
+          1650,
+          -600
+        ],
+        "linkIds": [
+          2546
+        ]
+      },
+      {
+        "id": 455,
+        "parentId": 262,
+        "pos": [
+          350,
+          -1620
+        ],
+        "linkIds": [
+          2547
+        ]
+      },
+      {
+        "id": 456,
+        "parentId": 262,
+        "pos": [
+          370,
+          -1540
+        ],
+        "linkIds": [
+          1289
+        ]
+      },
+      {
+        "id": 457,
+        "parentId": 458,
+        "pos": [
+          2830,
+          -1660
+        ],
+        "linkIds": [
+          1779
+        ]
+      },
+      {
+        "id": 458,
+        "parentId": 201,
+        "pos": [
+          2830,
+          -1480
+        ],
+        "linkIds": [
+          1779
+        ]
+      },
+      {
+        "id": 459,
+        "parentId": 201,
+        "pos": [
+          2830,
+          -1440
+        ],
+        "linkIds": [
+          259
+        ]
+      },
+      {
+        "id": 460,
+        "parentId": 306,
+        "pos": [
+          -550,
+          -2010
+        ],
+        "linkIds": [
+          229
+        ]
+      },
+      {
+        "id": 463,
+        "parentId": 469,
+        "pos": [
+          -510,
+          -1950
+        ],
+        "linkIds": [
+          226
+        ]
+      },
+      {
+        "id": 465,
+        "parentId": 470,
+        "pos": [
+          -550,
+          -1970
+        ],
+        "linkIds": [
+          227
+        ]
+      },
+      {
+        "id": 467,
+        "parentId": 236,
+        "pos": [
+          -50,
+          -1480
+        ],
+        "linkIds": [
+          1256
+        ]
+      },
+      {
+        "id": 468,
+        "parentId": 349,
+        "pos": [
+          1290,
+          -2030
+        ],
+        "linkIds": [
+          1414,
+          1415,
+          2535
+        ]
+      },
+      {
+        "id": 469,
+        "parentId": 313,
+        "pos": [
+          -510,
+          -1420
+        ],
+        "linkIds": [
+          226
+        ]
+      },
+      {
+        "id": 470,
+        "parentId": 314,
+        "pos": [
+          -550,
+          -1440
+        ],
+        "linkIds": [
+          227
+        ]
+      },
+      {
+        "id": 471,
+        "parentId": 474,
+        "pos": [
+          -570,
+          -370
+        ],
+        "linkIds": [
+          2864
+        ]
+      },
+      {
+        "id": 472,
+        "parentId": 473,
+        "pos": [
+          -550,
+          -390
+        ],
+        "linkIds": [
+          2863
+        ]
+      },
+      {
+        "id": 473,
+        "pos": [
+          -550,
+          -1310
+        ],
+        "linkIds": [
+          2863
+        ]
+      },
+      {
+        "id": 474,
+        "pos": [
+          -570,
+          -1290
+        ],
+        "linkIds": [
+          2864
+        ]
+      },
+      {
+        "id": 475,
+        "parentId": 234,
+        "pos": [
+          -530,
+          -1040
+        ],
+        "linkIds": [
+          1255
+        ]
+      },
+      {
+        "id": 476,
+        "parentId": 313,
+        "pos": [
+          -510,
+          -1380
+        ],
+        "linkIds": [
+          2458
+        ]
+      }
+    ],
+    "links_added_by_ue": [
+      3388,
+      3389,
+      3390
+    ],
+    "linkExtensions": [
+      {
+        "id": 171,
+        "parentId": 294
+      },
+      {
+        "id": 174,
+        "parentId": 293
+      },
+      {
+        "id": 175,
+        "parentId": 291
+      },
+      {
+        "id": 186,
+        "parentId": 27
+      },
+      {
+        "id": 187,
+        "parentId": 196
+      },
+      {
+        "id": 207,
+        "parentId": 14
+      },
+      {
+        "id": 212,
+        "parentId": 5
+      },
+      {
+        "id": 213,
+        "parentId": 17
+      },
+      {
+        "id": 214,
+        "parentId": 23
+      },
+      {
+        "id": 223,
+        "parentId": 290
+      },
+      {
+        "id": 226,
+        "parentId": 332
+      },
+      {
+        "id": 227,
+        "parentId": 346
+      },
+      {
+        "id": 229,
+        "parentId": 347
+      },
+      {
+        "id": 231,
+        "parentId": 271
+      },
+      {
+        "id": 232,
+        "parentId": 234
+      },
+      {
+        "id": 236,
+        "parentId": 408
+      },
+      {
+        "id": 237,
+        "parentId": 409
+      },
+      {
+        "id": 239,
+        "parentId": 416
+      },
+      {
+        "id": 240,
+        "parentId": 414
+      },
+      {
+        "id": 241,
+        "parentId": 405
+      },
+      {
+        "id": 244,
+        "parentId": 448
+      },
+      {
+        "id": 245,
+        "parentId": 450
+      },
+      {
+        "id": 246,
+        "parentId": 449
+      },
+      {
+        "id": 259,
+        "parentId": 203
+      },
+      {
+        "id": 306,
+        "parentId": 295
+      },
+      {
+        "id": 311,
+        "parentId": 274
+      },
+      {
+        "id": 1255,
+        "parentId": 235
+      },
+      {
+        "id": 1256,
+        "parentId": 242
+      },
+      {
+        "id": 1259,
+        "parentId": 267
+      },
+      {
+        "id": 1260,
+        "parentId": 268
+      },
+      {
+        "id": 1263,
+        "parentId": 256
+      },
+      {
+        "id": 1264,
+        "parentId": 264
+      },
+      {
+        "id": 1285,
+        "parentId": 257
+      },
+      {
+        "id": 1289,
+        "parentId": 456
+      },
+      {
+        "id": 1293,
+        "parentId": 283
+      },
+      {
+        "id": 1294,
+        "parentId": 284
+      },
+      {
+        "id": 1295,
+        "parentId": 285
+      },
+      {
+        "id": 1296,
+        "parentId": 286
+      },
+      {
+        "id": 1297,
+        "parentId": 287
+      },
+      {
+        "id": 1298,
+        "parentId": 289
+      },
+      {
+        "id": 1299,
+        "parentId": 288
+      },
+      {
+        "id": 1307,
+        "parentId": 297
+      },
+      {
+        "id": 1313,
+        "parentId": 180
+      },
+      {
+        "id": 1314,
+        "parentId": 418
+      },
+      {
+        "id": 1315,
+        "parentId": 438
+      },
+      {
+        "id": 1318,
+        "parentId": 413
+      },
+      {
+        "id": 1348,
+        "parentId": 344
+      },
+      {
+        "id": 1395,
+        "parentId": 86
+      },
+      {
+        "id": 1396,
+        "parentId": 406
+      },
+      {
+        "id": 1409,
+        "parentId": 410
+      },
+      {
+        "id": 1410,
+        "parentId": 419
+      },
+      {
+        "id": 1411,
+        "parentId": 440
+      },
+      {
+        "id": 1414,
+        "parentId": 417
+      },
+      {
+        "id": 1415,
+        "parentId": 437
+      },
+      {
+        "id": 1502,
+        "parentId": 357
+      },
+      {
+        "id": 1506,
+        "parentId": 358
+      },
+      {
+        "id": 1525,
+        "parentId": 363
+      },
+      {
+        "id": 1534,
+        "parentId": 354
+      },
+      {
+        "id": 1539,
+        "parentId": 352
+      },
+      {
+        "id": 1618,
+        "parentId": 355
+      },
+      {
+        "id": 1619,
+        "parentId": 359
+      },
+      {
+        "id": 1620,
+        "parentId": 360
+      },
+      {
+        "id": 1622,
+        "parentId": 372
+      },
+      {
+        "id": 1623,
+        "parentId": 373
+      },
+      {
+        "id": 1624,
+        "parentId": 374
+      },
+      {
+        "id": 1625,
+        "parentId": 375
+      },
+      {
+        "id": 1626,
+        "parentId": 376
+      },
+      {
+        "id": 1627,
+        "parentId": 377
+      },
+      {
+        "id": 1628,
+        "parentId": 378
+      },
+      {
+        "id": 1646,
+        "parentId": 344
+      },
+      {
+        "id": 1778,
+        "parentId": 390
+      },
+      {
+        "id": 1779,
+        "parentId": 391
+      },
+      {
+        "id": 1780,
+        "parentId": 395
+      },
+      {
+        "id": 1781,
+        "parentId": 398
+      },
+      {
+        "id": 1782,
+        "parentId": 200
+      },
+      {
+        "id": 1826,
+        "parentId": 433
+      },
+      {
+        "id": 2457,
+        "parentId": 317
+      },
+      {
+        "id": 2458,
+        "parentId": 316
+      },
+      {
+        "id": 2533,
+        "parentId": 425
+      },
+      {
+        "id": 2534,
+        "parentId": 424
+      },
+      {
+        "id": 2535,
+        "parentId": 429
+      },
+      {
+        "id": 2536,
+        "parentId": 430
+      },
+      {
+        "id": 2537,
+        "parentId": 431
+      },
+      {
+        "id": 2538,
+        "parentId": 441
+      },
+      {
+        "id": 2539,
+        "parentId": 444
+      },
+      {
+        "id": 2546,
+        "parentId": 454
+      },
+      {
+        "id": 2547,
+        "parentId": 455
+      },
+      {
+        "id": 2863,
+        "parentId": 472
+      },
+      {
+        "id": 2864,
+        "parentId": 471
+      },
+      {
+        "id": 2922,
+        "parentId": 29
+      }
+    ],
+    "frontendVersion": "1.34.9"
+  },
+  "version": 0.4
+}
