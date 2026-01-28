@@ -12,16 +12,20 @@ This project uses a nested repository structure to separate public code from pri
     *   *Rule:* **NEVER** commit personal paths, NSFW prompts, or raw JSONs here.
 *   **Private Scope (`/workflows/private/`)**:
     *   A separate git repository nested inside the public one (ignored via `.gitignore`).
-    *   Contains raw production workflows, full prompt stacks, and LoRA lists.
+    *   **Structure:**
+        *   `master/`: Core pipeline logic (The Engine).
+        *   `characters/{source_material}/{character_name}/`: Character instances.
     *   *Rule:* All "working" files go here.
 
 ## 📏 Operational Mandates
 
 ### 1. Naming Conventions
 *   **Experiments/Reports:** `YYYY-MM-DD_topic-name` (e.g., `2026-01-20_sampler-comparison`).
-*   **Workflows:** **Functional** naming, not Output naming.
-    *   ✅ `noobai_master_face_v1.json` (describes the pipeline)
-    *   ❌ `magical_girl_blue_eyes.json` (describes the picture)
+*   **Pipelines (Master):** **Functional** naming.
+    *   ✅ `noobai_master_face_v1.json` (describes the pipeline logic)
+*   **Instances (Characters):** **Descriptive** naming allowed within source hierarchy.
+    *   ✅ `characters/series/char/studio_char_variant_02.json`
+    *   *Note:* The suffix (e.g., `_02`) denotes the "Make" or "Model" (Mk II), not a sequential software version.
 *   **Assets:** Thumbnails must be "Birds-eye view" screenshots of the entire node graph.
 
 ### 2. Workflow Release Lifecycle
