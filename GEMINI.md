@@ -24,7 +24,8 @@ This project uses a nested repository structure to separate public code from pri
 *   **Pipelines (Master):** **Functional** naming.
     *   ✅ `noobai_master_face_v1.json` (describes the pipeline logic)
 *   **Instances (Characters):** **Descriptive** naming allowed within source hierarchy.
-    *   ✅ `characters/series/char/studio_char_variant_02.json`
+    *   ✅ `characters/series/char/studio_char_variant_02.json` (Generation)
+    *   ✅ `characters/series/char/darkroom_char_02.json` (Upscaling)
     *   *Note:* The suffix (e.g., `_02`) denotes the "Make" or "Model" (Mk II), not a sequential software version.
 *   **Assets:** Thumbnails must be "Birds-eye view" screenshots of the entire node graph.
 
